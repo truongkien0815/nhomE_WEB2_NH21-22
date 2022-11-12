@@ -438,13 +438,9 @@ class Vite implements Htmlable
             'rel' => 'preload',
             'as' => 'style',
             'href' => $url,
-            'nonce' => $this->nonce ?? false,
-            'crossorigin' => $this->resolveStylesheetTagAttributes($src, $url, $chunk, $manifest)['crossorigin'] ?? false,
         ] : [
             'rel' => 'modulepreload',
             'href' => $url,
-            'nonce' => $this->nonce ?? false,
-            'crossorigin' => $this->resolveScriptTagAttributes($src, $url, $chunk, $manifest)['crossorigin'] ?? false,
         ];
 
         $attributes = $this->integrityKey !== false
@@ -575,14 +571,10 @@ class Vite implements Htmlable
             return;
         }
 
-        $attributes = $this->parseAttributes([
-            'nonce' => $this->cspNonce(),
-        ]);
-
         return new HtmlString(
             sprintf(
                 <<<'HTML'
-                <script type="module" %s>
+                <script type="module">
                     import RefreshRuntime from '%s'
                     RefreshRuntime.injectIntoGlobalHook(window)
                     window.$RefreshReg$ = () => {}
@@ -590,7 +582,6 @@ class Vite implements Htmlable
                     window.__vite_plugin_react_preamble_installed__ = true
                 </script>
                 HTML,
-                implode(' ', $attributes),
                 $this->hotAsset('@react-refresh')
             )
         );

@@ -159,13 +159,11 @@ class RouteRegistrar
      * Create a route group with shared attributes.
      *
      * @param  \Closure|string  $callback
-     * @return $this
+     * @return void
      */
     public function group($callback)
     {
         $this->router->group($this->attributes, $callback);
-
-        return $this;
     }
 
     /**
