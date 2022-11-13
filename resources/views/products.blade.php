@@ -223,11 +223,16 @@
                                 <div class="input-rating">
                                     <span>Your Rating: </span>
                                     <div class="user_star_rating">
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <input class="fa fa-star" id="star1" name="rating" value="1" type="radio" aria-hidden="true" required><label
+                                            for="star1"></label>
+                                        <input class="fa fa-star" id="star2" name="rating" value="2" type="radio" aria-hidden="true" required><label
+                                            for="star2"></label>
+                                        <input class="fa fa-star" id="star3" name="rating" value="3" type="radio" aria-hidden="true" required><label
+                                            for="star3"></label>
+                                        <input class="fa fa-star" id="star4" name="rating" value="4" type="radio" aria-hidden="true" required><label
+                                            for="star4"></label>
+                                        <input class="fa fa-star" id="star5" name="rating" value="5" type="radio" aria-hidden="true" required><label
+                                            for="star5"></label>
                                     </div>
                                 </div>
                                 <button class="primary-btn">Submit</button>
@@ -245,11 +250,16 @@
                                 <div class="input-rating">
                                     <span>Your Rating: </span>
                                     <div class="user_star_rating">
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <input class="fa fa-star" id="star1" name="rating" value="1" type="radio" aria-hidden="true" required><label
+                                            for="star1"></label>
+                                        <input class="fa fa-star" id="star2" name="rating" value="2" type="radio" aria-hidden="true" required><label
+                                            for="star2"></label>
+                                        <input class="fa fa-star" id="star3" name="rating" value="3" type="radio" aria-hidden="true" required><label
+                                            for="star3"></label>
+                                        <input class="fa fa-star" id="star4" name="rating" value="4" type="radio" aria-hidden="true" required><label
+                                            for="star5"></label>
+                                        <input class="fa fa-star" id="star5" name="rating" value="5" type="radio" aria-hidden="true" required><label
+                                            for="star5"></label>
                                     </div>
                                 </div>
                                 <button id="review_submit" type="submit" class="red_button review_submit_btn trans_300"

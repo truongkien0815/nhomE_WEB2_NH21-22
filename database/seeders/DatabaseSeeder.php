@@ -21,31 +21,10 @@ class DatabaseSeeder extends Seeder
         DB::table('others')->insert([
             [
                 'product_id' => '1',
-                'user_id' => '2',
+                'user_id' => '1',
                 'like' => '1',
                 'submit' => 'Good!',
                 'star' => '4',
-            ],
-            [
-                'product_id' => '1',
-                'user_id' => '3',
-                'like' => '1',
-                'submit' => 'Verry good!',
-                'star' => '5',
-            ],
-            [
-                'product_id' => '2',
-                'user_id' => '2',
-                'like' => '0',
-                'submit' => 'Bad!',
-                'star' => '3',
-            ],
-            [
-                'product_id' => '2',
-                'user_id' => '3',
-                'like' => '0',
-                'submit' => 'Verry bad!',
-                'star' => '2',
             ],
         ]);
 
@@ -56,30 +35,10 @@ class DatabaseSeeder extends Seeder
                 'product_id' => '1',
                 'quantity' => '2',
             ],
-            [
-                'payment_id' => '1',
-                'product_id' => '2',
-                'quantity' => '1',
-            ],
-            [
-                'payment_id' => '2',
-                'product_id' => '3',
-                'quantity' => '3',
-            ]
         ]);
 
         // Table Payment
         DB::table('payments')->insert([
-            [
-                'user_id' => '2',
-                'discount' => '3',
-                'created_at' => '2022-03-05',
-            ],
-            [
-                'user_id' => '3',
-                'discount' => '5',
-                'created_at' => '2022-01-21',
-            ]
         ]);
 
         //Table Users
@@ -91,23 +50,11 @@ class DatabaseSeeder extends Seeder
                 'admin' => '1',
             ],
             [
-                'name' => 'user1',
-                'email' => 'user1@gmail.com',
-                'password' => Hash::make('user123456'),
+                'name' => 'thang',
+                'email' => 'thang@gmail.com',
+                'password' => Hash::make('thang123456'),
                 'admin' => '0',
             ],
-            [
-                'name' => 'user2',
-                'email' => 'user2@gmail.com',
-                'password' => Hash::make('user23456'),
-                'admin' => '0',
-            ],
-            [
-                'name' => 'user3',
-                'email' => 'user3@gmail.com',
-                'password' => Hash::make('user3456'),
-                'admin' => '0',
-            ]
         ]);
 
         // Table Protypes
