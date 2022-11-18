@@ -7,7 +7,9 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -28,6 +30,7 @@ class DatabaseSeeder extends Seeder
             ],
         ]);
 
+<<<<<<< HEAD
         // Table detail
         DB::table('details')->insert([
             [
@@ -72,6 +75,12 @@ class DatabaseSeeder extends Seeder
                 'manu_name' => 'Tui',
             ],
         ]);
+=======
+        // \App\Models\User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
+>>>>>>> nhomE_thinh
         // Table Manufacturer
         DB::table('manufacturers')->insert([
             [
@@ -87,6 +96,7 @@ class DatabaseSeeder extends Seeder
                 'manu_name' => 'LouisVuiton',
             ],
         ]);
+<<<<<<< HEAD
 
           // Table Products
           DB::table('products')->insert([
@@ -557,5 +567,7 @@ class DatabaseSeeder extends Seeder
 
             
         ]);
+=======
+>>>>>>> nhomE_thinh
     }
 }
