@@ -90,41 +90,12 @@
                                     <img href="{{ url('/products/'.$value->product_id.'/'.$value->manu_id) }}"
                                         src="{{ asset('img/'.$value->image) }}" alt="" style="height: 225px;">
                                 </div>
-                                <!--  -->
-                                <?php if ($user == NULL) { ?>
-                                <form action="{{ url('/others/index/'.$value->product_id.'/0') }}" method="get">
-                                    <div class="product-btns">
-                                        <button name="action" value="wishlist" class="add-to-wishlist"><i
-                                                class="fa fa-heart-o"></i><span class="tooltipp"></span></button>
-                                    </div>
-                                </form>
-                                <?php } else { ?>
-                                <form action="{{ url('/others/index/'.$value->product_id.'/'.$user->id) }}"
-                                    method="get">
-                                    <div class="product-btns">
-                                        <?php $like = 0;
-													foreach ($user->others as $other) {
-														if ($other->product_id == $value->product_id && $other->like == "1") {
-															$like = 1; ?>
-                                        <button name="action" value="wishlist" class="add-to-wishlist"><i
-                                                style="color:red;" class="fa fa-heart-o"></i><span
-                                                class="tooltipp"></span></button>
-                                        <?php }
-													}
-													if ($like == 0) { ?>
-                                        <button name="action" value="wishlist" class="add-to-wishlist"><i
-                                                class="fa fa-heart-o"></i><span class="tooltipp"></span></button>
-                                        <?php }
-									?>
-                                    </div>
-                                </form>
-                                <?php } ?>
+                                <!--  -->   
                                 <!--  -->
                                 <div
                                     class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
                                     <?php if ($value->sale > 0) { ?>
                                     <div class="product-label">
-                                        <span class="sale">{{ "-".$value->sale."%" }}</span>
                                         <span class="new">NEW</span>
                                     </div>
                                     <?php } else { ?>
@@ -140,7 +111,7 @@
                                     <?php if ($value->sale > 0) { ?>
                                     <h6 class="product_price">
                                         {{ number_format($value->price - ($value->price * $value->sale / 100)) . "đ " }}<del
-                                            class="product-old-price">{{ number_format($value->price)."đ" }}</del>
+                                            class="product-old-price"></del>
                                     </h6>
                                     <?php } else { ?>
                                     <h6 class="product_price">{{ number_format($value->price)."đ" }}</h6>
@@ -239,7 +210,6 @@
                                     class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
                                     <?php if ($value->sale > 0) { ?>
                                     <div class="product-label">
-                                        <span class="sale">{{ "-".$value->sale."%" }}</span>
                                         <span class="new">NEW</span>
                                     </div>
                                     <?php } else { ?>
@@ -254,8 +224,7 @@
                                     </h6>
                                     <?php if ($value->sale > 0) { ?>
                                     <div class="product_price">
-                                        {{ number_format($value->price - ($value->price * $value->sale / 100)) . "đ " }}<del
-                                            class="product-old-price">{{ number_format($value->price)."đ" }}
+                                        {{ number_format($value->price - ($value->price * $value->sale / 100)) . "đ " }}
                                     </div>
                                     <?php } ?>
                                 </div>
@@ -289,7 +258,7 @@
                 <div class="benefit_item d-flex flex-row align-items-center">
                     <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
                     <div class="benefit_content">
-                        <h6>free shipping</h6>
+                        <h6>free shipping:</h6>
                         <p>Suffered Alteration in Some Form</p>
                     </div>
                 </div>
