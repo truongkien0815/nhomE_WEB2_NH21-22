@@ -14,8 +14,7 @@
             <div class="breadcrumbs d-flex flex-row align-items-center">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li class="active"><a href="index.html"><i class="fa fa-angle-right"
-                                aria-hidden="true"></i>Men's</a></li>
+                    <li class="active"><a href="index.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Men's</a></li>
                 </ul>
             </div>
 
@@ -28,8 +27,7 @@
                     </div>
                     <ul class="sidebar_categories">
                         <li><a href="#">Men</a></li>
-                        <li class="active"><a href="#"><span><i class="fa fa-angle-double-right"
-                                        aria-hidden="true"></i></span>Women</a></li>
+                        <li class="active"><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>Women</a></li>
                         <li><a href="#">Accessories</a></li>
                         <li><a href="#">New Arrivals</a></li>
                         <li><a href="#">Collection</a></li>
@@ -106,8 +104,7 @@
                                         <span class="type_sorting_text">Default Sorting</span>
                                         <i class="fa fa-angle-down"></i>
                                         <ul class="sorting_type">
-                                            <li class="type_sorting_btn"
-                                                data-isotope-option='{ "sortBy": "original-order" }'><span>Default
+                                            <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Default
                                                     Sorting</span></li>
                                             <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "price" }'>
                                                 <span>Price</span>
@@ -138,78 +135,72 @@
                                         </ul>
                                     </div>
                                     <div class="page_total"><span>of</span> 3</div>
-                                    <div id="next_page" class="page_next"><a href="#"><i class="fa fa-long-arrow-right"
-                                                aria-hidden="true"></i></a></div>
+                                    <div id="next_page" class="page_next"><a href="#"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></div>
                                 </div>
 
                             </div>
 
                             <!-- Product Grid -->
-                            
+
                             <div class="product-grid">
-                            @foreach($search as $value)
-                                <!-- Product 1 -->                         
+                                @foreach($search as $value)
+                                <!-- Product 1 -->
                                 <div class="product-item men">
                                     <div class="product discount product_filter">
                                         <div class="product_image">
-                                            <img href="{{ url('/products/'.$value->product_id.'/'.$value->manu_id) }}"
-                                                src="{{ asset('img/'.$value->image) }}" alt="" style="height: 225px;">
+                                            <img href="{{ url('/products/'.$value->product_id.'/'.$value->manu_id) }}" src="{{ asset('img/'.$value->image) }}" alt="" style="height: 225px;">
                                         </div>
                                         <!--  -->
-										<?php if ($user == NULL) { ?>
-									<form action="{{ url('/others/search/'.$value->product_id.'/0/'.session()->get('option').'/'.session()->get('key')) }}" method="get">
-										<div class="product-btns">
-											<button name="action" value="wishlist" class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"></span></button>
-											
-										</div>
-									</form>
-								<?php } else { ?>
-									<form action="{{ url('/others/search/'.$value->product_id.'/'.$user->id.'/'.session()->get('option').'/'.session()->get('key')) }}" method="get">
-										<div class="product-btns">
-											<?php $like = 0;
-											foreach ($user->others as $other) {
-												if ($other->product_id == $value->product_id && $other->like == "1") {
-													$like = 1; ?>
-													<button name="action" value="wishlist" class="add-to-wishlist"><i style="color:red;" class="fa fa-heart-o"></i><span class="tooltipp"></span></button>
-												<?php }
-											}
-											if ($like == 0) { ?>
-												<button name="action" value="wishlist" class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"></span></button>
-											<?php }
-											 ?>
-										</div>
-									</form>
-								<?php } ?>
-										<!--  -->
-                                        <div
-                                            class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
-                                            <?php if ($value->sale > 0) { ?>
-                                            <div class="product-label">
-                                                <span class="sale">{{ "-".$value->sale."%" }}</span>
-                                                <span class="new">NEW</span>
-                                            </div>
-                                            <?php } else { ?>
-                                            <div class="product-label">
-                                                <span class="new">NEW</span>
-                                            </div>
-                                            <?php } ?>
+
+                                            <form action="{{ url('/others/search/'.$value->product_id.'/0/'.session()->get('option').'/'.session()->get('key')) }}" method="get">
+                                                <div class="product-btns">
+                                                    <button name="action" value="wishlist" class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"></span></button>
+
+                                                </div>
+                                            </form>
+
+                                            <form action="{{ url('/others/search/'.$value->product_id.'/'.$user->id.'/'.session()->get('option').'/'.session()->get('key')) }}" method="get">
+                                                <div class="product-btns">
+                                                    <?php $like = 0;
+                                                    foreach ($user->others as $other) {
+                                                        if ($other->product_id == $value->product_id && $other->like == "1") {
+                                                            $like = 1; ?>
+                                                            <button name="action" value="wishlist" class="add-to-wishlist"><i style="color:red;" class="fa fa-heart-o"></i><span class="tooltipp"></span></button>
+                                                        <?php }
+                                                    }
+                                                    if ($like == 0) { ?>
+                                                        <button name="action" value="wishlist" class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"></span></button>
+                                                    <?php }
+                                                    ?>
+                                                </div>
+                                            </form>
+
+                                        <!--  -->
+                                        <div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
+                                            
+                                                <div class="product-label">
+                                                    <span class="sale">{{ "-".$value->sale."%" }}</span>
+                                                    <span class="new">NEW</span>
+                                                </div>
+                                            
+                                                <div class="product-label">
+                                                    <span class="new">NEW</span>
+                                                </div>
+                                            
                                         </div>
                                         <div class="product_info">
-                                            <h6 class="product_name"><a
-                                                    href="{{ url('/products/'.$value->product_id.'/'.$value->manu_id) }}">{{ $value->product_name }}</a>
+                                            <h6 class="product_name"><a href="{{ url('/products/'.$value->product_id.'/'.$value->manu_id) }}">{{ $value->product_name }}</a>
                                             </h6>
-                                            <?php if ($value->sale > 0) { ?>
-                                            <h4 class="product_price">
-                                                {{ number_format($value->price - ($value->price * $value->sale / 100)) . "đ " }}<del
-                                                    class="product-old-price">{{ number_format($value->price)."đ" }}</del>
-                                            </h4>
-                                            <?php } else { ?>
-                                            <h4 class="product_price">{{ number_format($value->price)."đ" }}</h4>
-                                            <?php } ?>
+                                            
+                                                <h4 class="product_price">
+                                                    <del class="product-old-price"></del>
+                                                </h4>
+                                            
+                                                <h4 class="product_price"></h4>
+                                            
                                         </div>
                                     </div>
-                                    <div class="red_button add_to_cart_button"><a
-                                            href="{{ url('/carts/add/'.$value->product_id) }}">
+                                    <div class="red_button add_to_cart_button"><a href="{{ url('/carts/add/'.$value->product_id) }}">
                                             </i> add to cart</button>
                                         </a></div>
                                 </div>
@@ -242,8 +233,7 @@
                                         </ul>
                                     </div>
                                     <div class="page_total"><span>of</span> 3</div>
-                                    <div id="next_page_1" class="page_next"><a href="#"><i
-                                                class="fa fa-long-arrow-right" aria-hidden="true"></i></a></div>
+                                    <div id="next_page_1" class="page_next"><a href="#"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></div>
                                 </div>
 
                             </div>

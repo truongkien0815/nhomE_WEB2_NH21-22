@@ -13,7 +13,7 @@
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Home</a></li>
-            <li class="breadcrumb-item active">Manufactures</li>
+            <li class="breadcrumb-item active">Users</li>
           </ol>
         </div>
       </div>
@@ -26,8 +26,8 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <form action="{{ url('/manufacturer/create') }}" method="get">
-          <h3 class="card-title">Manufactures <button class="btn btn-info btn-sm">
+        <form action="{{ url('/user/create') }}" method="get">
+          <h3 class="card-title">Users <button class="btn btn-info btn-sm">
               <i class="fas fa-pencil-alt">
               </i>
               Add
