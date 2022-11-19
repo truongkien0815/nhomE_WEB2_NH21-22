@@ -150,15 +150,15 @@
                                         <div class="product_image">
                                             <img href="{{ url('/products/'.$value->product_id.'/'.$value->manu_id) }}" src="{{ asset('img/'.$value->image) }}" alt="" style="height: 225px;">
                                         </div>
-                                        <!--  -->
-
+                                         <!-- Phi -->
+                                         <?php if ($user == NULL) { ?>
                                             <form action="{{ url('/others/search/'.$value->product_id.'/0/'.session()->get('option').'/'.session()->get('key')) }}" method="get">
                                                 <div class="product-btns">
                                                     <button name="action" value="wishlist" class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"></span></button>
 
                                                 </div>
                                             </form>
-
+                                        <?php } else { ?>
                                             <form action="{{ url('/others/search/'.$value->product_id.'/'.$user->id.'/'.session()->get('option').'/'.session()->get('key')) }}" method="get">
                                                 <div class="product-btns">
                                                     <?php $like = 0;
@@ -174,7 +174,7 @@
                                                     ?>
                                                 </div>
                                             </form>
-
+                                        <?php } ?>
                                         <!--  -->
                                         <div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
                                             
