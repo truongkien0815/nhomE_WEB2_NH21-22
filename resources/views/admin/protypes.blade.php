@@ -48,10 +48,10 @@
           <thead>
             <tr>
               <th style="width: 25%" class="text-center">
-                Manu id
+                type id
               </th>
               <th style="width: 25%" class="text-center">
-                Manu name
+                type name
               </th>
               <th style="width: 50%" class="text-center">
                 Action
