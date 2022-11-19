@@ -19,6 +19,12 @@ return new class extends Migration
             $table->integer('payment_id');
             //$table->primary(['product_id', 'payment_id']);
             $table->integer('quantity');
+            $table->integer('status');
+            $table->string('address');
+            $table->string('telephone');
+
+            
+
             $table->timestamps();
         });
     }

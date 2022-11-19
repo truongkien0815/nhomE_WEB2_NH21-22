@@ -58,18 +58,25 @@
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
                             <div class="row">
-                                <!-- <li class="grid_sorting_button button d-flex flex-column justify-content-center"><a
-                                        data-toggle="tab" href="#np">Alls</a></li> -->
-                                        <li class="grid_sorting_button button d-flex flex-column justify-content-center"><a
-                                        data-toggle="tab" id="type" data-type="0" href="#np">Alls</a></li>
-                              
-
+                                @if(isset(Auth::user()->name))
+                                <li class="grid_sorting_button button d-flex flex-column justify-content-center"><a
+                                        data-toggle="tab" id="type" data-type="0" data-userid="{{Auth::user()->id}}"
+                                        href="#np">Alls</a></li>
+                                @else
+                                <li class="grid_sorting_button button d-flex flex-column justify-content-center"><a
+                                        data-toggle="tab" id="type" data-type="0" data-userid="1" href="#np">Alls</a>
+                                </li>
+                                @endif
                                 @foreach($allmanus as $value)
-                                <!-- <li><a class="grid_sorting_button button d-flex flex-column justify-content-center"
-                                        data-toggle="tab" href="#np{{ $value->manu_id }}">{{ $value->manu_name }}</a>
-                                </li> -->
-                                
-                                <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" id="type" data-type="{{$value->manu_id}}" data-userid="" >{{ $value->manu_name }}</li>
+                                @if(isset(Auth::user()->name))
+                                <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center"
+                                    id="type" data-type="{{$value->manu_id}}" data-userid="{{Auth::user()->id}}">
+                                    {{ $value->manu_name }}</li>
+                                @else
+                                <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center"
+                                    id="type" data-type="{{$value->manu_id}}" data-userid="1">{{ $value->manu_name }}
+                                </li>
+                                @endif
                                 @endforeach
                             </div>
 
@@ -82,90 +89,88 @@
         <div class="row tt">
             <div class="col">
                 <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
-                        <!-- Slide 1 -->
-                        @foreach($newproducts as $value)
-                        <div class="product-item women">
-                            <div class="product product_filter">
-                                <div class="product_image">
-                                    <img href="{{ url('/products/'.$value->product_id.'/'.$value->manu_id) }}"
-                                        src="{{ asset('img/'.$value->image) }}" alt="" style="height: 225px;">
+                    <!-- Slide 1 -->
+                    @foreach($newproducts as $value)
+                    <div class="product-item women">
+                        <div class="product product_filter">
+                            <div class="product_image">
+                                <img href="{{ url('/products/'.$value->product_id.'/'.$value->manu_id) }}"
+                                    src="{{ asset('img/'.$value->image) }}" alt="" style="height: 225px;">
+                            </div>
+                            <!--  -->
+                            <?php if ($user == NULL) { ?>
+                            <form action="{{ url('/others/index/'.$value->product_id.'/0') }}" method="get">
+                                <div class="product-btns">
+                                    <button name="action" value="wishlist" class="add-to-wishlist"><i
+                                            class="fa fa-heart-o"></i><span class="tooltipp"></span></button>
                                 </div>
-                                <!--  -->
-                                <?php if ($user == NULL) { ?>
-                                <form action="{{ url('/others/index/'.$value->product_id.'/0') }}" method="get">
-                                    <div class="product-btns">
-                                        <button name="action" value="wishlist" class="add-to-wishlist"><i
-                                                class="fa fa-heart-o"></i><span class="tooltipp"></span></button>
-                                    </div>
-                                </form>
-                                <?php } else { ?>
-                                <form action="{{ url('/others/index/'.$value->product_id.'/'.$user->id) }}"
-                                    method="get">
-                                    <div class="product-btns">
-                                        <?php $like = 0;
+                            </form>
+                            <?php } else { ?>
+                            <form action="{{ url('/others/index/'.$value->product_id.'/'.$user->id) }}" method="get">
+                                <div class="product-btns">
+                                    <?php $like = 0;
 													foreach ($user->others as $other) {
 														if ($other->product_id == $value->product_id && $other->like == "1") {
 															$like = 1; ?>
-                                        <button name="action" value="wishlist" class="add-to-wishlist"><i
-                                                style="color:red;" class="fa fa-heart-o"></i><span
-                                                class="tooltipp"></span></button>
-                                        <?php }
+                                    <button name="action" value="wishlist" class="add-to-wishlist"><i style="color:red;"
+                                            class="fa fa-heart-o"></i><span class="tooltipp"></span></button>
+                                    <?php }
 													}
 													if ($like == 0) { ?>
-                                        <button name="action" value="wishlist" class="add-to-wishlist"><i
-                                                class="fa fa-heart-o"></i><span class="tooltipp"></span></button>
-                                        <?php }
+                                    <button name="action" value="wishlist" class="add-to-wishlist"><i
+                                            class="fa fa-heart-o"></i><span class="tooltipp"></span></button>
+                                    <?php }
 									?>
-                                    </div>
-                                </form>
+                                </div>
+                            </form>
+                            <?php } ?>
+                            <!--  -->
+                            <div
+                                class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
+                                <?php if ($value->sale > 0) { ?>
+                                <div class="product-label">
+                                    <span class="sale">{{ "-".$value->sale."%" }}</span>
+                                    <span class="new">NEW</span>
+                                </div>
+                                <?php } else { ?>
+                                <div class="product-label">
+                                    <span class="new">NEW</span>
+                                </div>
                                 <?php } ?>
-                                <!--  -->
-                                <div
-                                    class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
-                                    <?php if ($value->sale > 0) { ?>
-                                    <div class="product-label">
-                                        <span class="sale">{{ "-".$value->sale."%" }}</span>
-                                        <span class="new">NEW</span>
-                                    </div>
-                                    <?php } else { ?>
-                                    <div class="product-label">
-                                        <span class="new">NEW</span>
-                                    </div>
-                                    <?php } ?>
-                                </div>
-                                <div class="product_info">
-                                    <h6 class="product_name"><a
-                                            href="{{ url('/products/'.$value->product_id.'/'.$value->manu_id) }}">{{ $value->product_name }}</a>
-                                    </h6>
-                                    <?php if ($value->sale > 0) { ?>
-                                    <h6 class="product_price">
-                                        {{ number_format($value->price - ($value->price * $value->sale / 100)) . "đ " }}<del
-                                            class="product-old-price">{{ number_format($value->price)."đ" }}</del>
-                                    </h6>
-                                    <?php } else { ?>
-                                    <h6 class="product_price">{{ number_format($value->price)."đ" }}</h6>
-                                    <?php } ?>
-                                </div>
                             </div>
-                            <div class="red_button add_to_cart_button"><a
-                                    href="{{ url('/carts/add/'.$value->product_id) }}">
-                                    </i> add to cart</button>
-                                </a></div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a
+                                        href="{{ url('/products/'.$value->product_id.'/'.$value->manu_id) }}">{{ $value->product_name }}</a>
+                                </h6>
+                                <?php if ($value->sale > 0) { ?>
+                                <h6 class="product_price">
+                                    {{ number_format($value->price - ($value->price * $value->sale / 100)) . "đ " }}
+                                    <del class="product-old-price">{{ number_format($value->price)."đ" }}</del>
+                                </h6>
+                                <?php } else { ?>
+                                <h6 class="product_price">{{ number_format($value->price)."đ" }}</h6>
+                                <?php } ?>
+                            </div>
                         </div>
-                        @endforeach
+                        <div class="red_button add_to_cart_button"><a
+                                href="{{ url('/carts/add/'.$value->product_id) }}">
+                                </i> add to cart</button>
+                            </a></div>
                     </div>
-
-                    <!-- Slider Navigation -->
-
-                    <div
-                        class="product_slider_nav_left product_slider_nav d-flex align-items-center justify-content-center flex-column">
-                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                    </div>
-                    <div
-                        class="product_slider_nav_right product_slider_nav d-flex align-items-center justify-content-center flex-column">
-                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                    </div>
+                    @endforeach
                 </div>
+
+                <!-- Slider Navigation -->
+
+                <div
+                    class="product_slider_nav_left product_slider_nav d-flex align-items-center justify-content-center flex-column">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                </div>
+                <div
+                    class="product_slider_nav_right product_slider_nav d-flex align-items-center justify-content-center flex-column">
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </div>
+            </div>
         </div>
     </div>
 </div>

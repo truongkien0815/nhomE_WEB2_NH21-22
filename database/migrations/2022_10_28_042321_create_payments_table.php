@@ -17,6 +17,10 @@ return new class extends Migration
             $table->id('payment_id');
             $table->integer('user_id');
             $table->integer('discount');
+            $table->integer('status');
+            
+
+           
             $table->timestamps();
         });
     }

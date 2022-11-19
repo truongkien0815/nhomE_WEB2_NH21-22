@@ -798,7 +798,7 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
      * @template TCombineValue
      *
      * @param  \IteratorAggregate<array-key, TCombineValue>|array<array-key, TCombineValue>|(callable(): \Generator<array-key, TCombineValue>)  $values
-     * @return static<TValue, TCombineValue>
+     * @return static<TKey, TCombineValue>
      */
     public function combine($values)
     {

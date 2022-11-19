@@ -27,7 +27,7 @@ class PaymentsController extends Controller
         if (!$this->userCan('view-page-admin')) {
             abort('404', __('NOT FOUND'));
         }
-        $allpayments = Payment::all();
+        $allpayments = Payment::paginate(5);
         $alldetails = Detail::all();
         $allusers = User::all();
         return view('admin.payments', [
@@ -67,7 +67,10 @@ class PaymentsController extends Controller
         $payment = new Payment;
         $payment->user_id = $request->user_id;
         $payment->discount = $request->discount;
+        $payment->status = 0;
+        
         $payment->created_at = $request->created_at;
+
         $payment->save();
         return redirect()->action([PaymentsController::class, 'index']);
     }
@@ -137,6 +140,19 @@ class PaymentsController extends Controller
         }
         $payment = Payment::find($id);
         $payment->delete();
+        $chitiet = Detail::where('payment_id',$id);
+        $chitiet->delete();
         return redirect()->action([PaymentsController::class, 'index']);
     }
+    public function delete($id)
+    {
+       
+        $payment = Payment::find($id);
+        $payment->delete();
+        $chitiet = Detail::where('payment_id',$id);
+        $chitiet->delete();
+        return redirect()->back();
+    }
+
+    
 }
