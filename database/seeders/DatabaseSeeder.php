@@ -57,7 +57,7 @@ class DatabaseSeeder extends Seeder
             ],
         ]);
 
-        // Table Protypes
+        // Table Protypes Phi
         DB::table('protypes')->insert([
             [
                 'manu_name' => 'Ao',
