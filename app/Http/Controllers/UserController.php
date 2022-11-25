@@ -24,7 +24,7 @@ class UserController extends Controller
         if (!$this->userCan('view-page-admin')) {
             abort('404', __('NOT FOUND'));
         }
-        $allusers = User::all();
+        $allusers = User::paginate(5);
         return view('admin.users', [
             'allusers' => $allusers,
         ]);
@@ -39,7 +39,7 @@ class UserController extends Controller
         if (!$this->userCan('view-page-admin')) {
             abort('404', __('BNOT FOUND!'));
         }
-        return view('admin.addmanufacturer');
+        return view('admin.adduser');
     }
 
     /**
@@ -70,6 +70,8 @@ class UserController extends Controller
         if (!$this->userCan('view-page-admin')) {
             abort('404', __('NOT FOUND!'));
         }
+        $user = User::find($id);
+        return view('admin.edituser')->with('user',$user);
     }
 
     /**
