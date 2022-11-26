@@ -58,6 +58,7 @@
                     <div class="section-title">
                         <h3 class="title">Billing address</h3>
                     </div>
+<<<<<<< HEAD
                     <div class="form-group">
                         <input class="input" type="text" name="first-name" placeholder="First Name">
                     </div>
@@ -96,6 +97,27 @@
                             </div>
                         </div>
                     </div>
+=======
+                    <form action="{{ url('/createpayment') }}" method="get">
+
+
+                        <div class="form-group">
+                            <label for="#">
+                                <h5>Địa chỉ</h5>
+                            </label>
+                            <input class="input" type="text" required="required" name="address" placeholder="Address">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="#">
+                                <h5>Số điện thoại</h5>
+                            </label>
+                            <input class="input" type="tel" required="required" pattern="^[0-9]*$" name="telephone"
+                                placeholder="Telephone">
+                        </div>
+
+>>>>>>> kien_nhomE
                 </div>
                 <!-- /Billing Details -->
 
@@ -104,6 +126,7 @@
                     <div class="section-title">
                         <h3 class="title">Shiping address</h3>
                     </div>
+<<<<<<< HEAD
                     <div class="input-checkbox">
                         <input type="checkbox" id="shiping-address">
                         <label for="shiping-address">
@@ -145,6 +168,13 @@
                     <textarea class="input" placeholder="Order Notes"></textarea>
                 </div>
                 <!-- /Order notes -->
+=======
+
+                </div>
+                <!-- /Shiping Details -->
+
+
+>>>>>>> kien_nhomE
             </div>
             <!-- Order Details -->
             <div class="col-md-5 order-details">
@@ -176,8 +206,13 @@
                         <?php }
 						} ?>
                     </div>
+<<<<<<< HEAD
                     <div class="order-col">
                         <div>Shiping</div>
+=======
+                    <div class="order-col shipping">
+                        <div>Shiping : </div>
+>>>>>>> kien_nhomE
                         <div><strong>FREE</strong></div>
                     </div>
                     <div class="order-col">
@@ -186,6 +221,7 @@
                     </div>
                 </div>
                 <div class="payment-method">
+<<<<<<< HEAD
                     <div class="input-radio">
                         <input type="radio" name="payment" id="payment-1">
                         <label for="payment-1">
@@ -229,10 +265,22 @@
                 </div>
                 <?php if ($user != NULL) { ?>
                 <a href="{{ url('/createpayment') }}" class="primary-btn order-submit">Place order</a>
+=======
+
+
+                </div>
+
+                <?php if ($user != NULL) { ?>
+                <button type="submit" class="primary-btn order-submit"> Place order </button>
+>>>>>>> kien_nhomE
                 <?php } else { ?>
                 <a href="{{ url('/login') }}" class="primary-btn order-submit">Place order</a>
                 <?php } ?>
             </div>
+<<<<<<< HEAD
+=======
+            </form>
+>>>>>>> kien_nhomE
             <!-- /Order Details -->
         </div>
         <!-- /row -->

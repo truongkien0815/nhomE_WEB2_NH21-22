@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Details</h1>
+                    <h1>Details All </h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -57,19 +57,19 @@
                                 Payment id
                             </th>
                             <th style="width: 5%" class="text-center">
-                                Image
+                                image
                             </th>
                             <th style="width: 10%" class="text-center">
                                 Quantity
                             </th>
                             <th style="width: 10%" class="text-center">
-                            Total money
+                                Total money
                             </th>
                             <th style="width: 20%" class="text-center">
                                 Address
                             </th>
                             <th style="width: 20%" class="text-center">
-                               Telephone
+                                Telephone
                             </th>
                             <th style="width: 20%" class="text-center">
                                 Status
@@ -98,14 +98,10 @@
                             </td>
                             <td class="project-state">
                                 {{ $value->quantity }}
-
-
                             </td>
                             <td class="project-state">
                                 {{ number_format($value->quantity * ($allproducts[$value->product_id - 1]->price -  ($allproducts[$value->product_id - 1]->price
                 *  $allproducts[$value->product_id - 1]->sale / 100))) . "đ " }}
-
-                                <!-- {{ $value->quantity * $allproducts[$value->product_id - 1]->price }} -->
                             </td>
                             <td class="project-state">
                                 {{ $value->address}}
@@ -147,8 +143,8 @@
                                     @csrf
 
                                     <button type="submit" class="btn btn-success bt  n-sm">
-
-                                        Xác nhận</button>
+                                        Xác nhận
+                                    </button>
                                 </form>
 
                             </td>

@@ -47,11 +47,15 @@
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
+<<<<<<< HEAD
                 <x-primary-button class="ml-3">
                     <a href=" {{ url('register')}}">
                     {{ __('Register') }}
                     </a>
                 </x-button>
+=======
+
+>>>>>>> kien_nhomE
                 <x-primary-button class="ml-3">
                     {{ __('Log in') }}
                 </x-primary-button>

@@ -29,7 +29,7 @@ class ProductsController extends Controller
         if (!$this->userCan('view-page-admin')) {
             abort('404', __('NOT FOUND'));
         }
-        $allproducts = Product::orderBy('product_id', 'desc')->get();
+        $allproducts = Product::orderBy('product_id', 'desc')->paginate(10);
         $allmanus = Protype::all();
         $allothers = Other::all();
         $alldetails = Detail::all();

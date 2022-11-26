@@ -156,11 +156,42 @@
                                                 src="{{ asset('img/'.$value->image) }}" alt="" style="height: 225px;">
                                         </div>
                                         <!--  -->
+<<<<<<< HEAD
+=======
+										<?php if ($user == NULL) { ?>
+									<form action="{{ url('/others/search/'.$value->product_id.'/0/'.session()->get('option').'/'.session()->get('key')) }}" method="get">
+										<div class="product-btns">
+											<button name="action" value="wishlist" class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"></span></button>
+											
+										</div>
+									</form>
+								<?php } else { ?>
+									<form action="{{ url('/others/search/'.$value->product_id.'/'.$user->id.'/'.session()->get('option').'/'.session()->get('key')) }}" method="get">
+										<div class="product-btns">
+											<?php $like = 0;
+											foreach ($user->others as $other) {
+												if ($other->product_id == $value->product_id && $other->like == "1") {
+													$like = 1; ?>
+													<button name="action" value="wishlist" class="add-to-wishlist"><i style="color:red;" class="fa fa-heart-o"></i><span class="tooltipp"></span></button>
+												<?php }
+											}
+											if ($like == 0) { ?>
+												<button name="action" value="wishlist" class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"></span></button>
+											<?php }
+											 ?>
+										</div>
+									</form>
+								<?php } ?>
+>>>>>>> kien_nhomE
 										<!--  -->
                                         <div
                                             class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
                                             <?php if ($value->sale > 0) { ?>
                                             <div class="product-label">
+<<<<<<< HEAD
+=======
+                                                <span class="sale">{{ "-".$value->sale."%" }}</span>
+>>>>>>> kien_nhomE
                                                 <span class="new">NEW</span>
                                             </div>
                                             <?php } else { ?>
@@ -176,7 +207,11 @@
                                             <?php if ($value->sale > 0) { ?>
                                             <h4 class="product_price">
                                                 {{ number_format($value->price - ($value->price * $value->sale / 100)) . "đ " }}<del
+<<<<<<< HEAD
                                                     class="product-old-price"></del>
+=======
+                                                    class="product-old-price">{{ number_format($value->price)."đ" }}</del>
+>>>>>>> kien_nhomE
                                             </h4>
                                             <?php } else { ?>
                                             <h4 class="product_price">{{ number_format($value->price)."đ" }}</h4>
@@ -206,6 +241,10 @@
                                         </ul>
                                     </li>
                                 </ul>
+<<<<<<< HEAD
+=======
+                             
+>>>>>>> kien_nhomE
                                 <span class="showing_results">Showing 1–3 of 12 results</span>
                                 <div class="pages d-flex flex-row align-items-center">
                                     <div class="page_current">
@@ -240,7 +279,11 @@
                 <div class="benefit_item d-flex flex-row align-items-center">
                     <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
                     <div class="benefit_content">
+<<<<<<< HEAD
                         <h6>free shipping:</h6>
+=======
+                        <h6>free shipping</h6>
+>>>>>>> kien_nhomE
                         <p>Suffered Alteration in Some Form</p>
                     </div>
                 </div>

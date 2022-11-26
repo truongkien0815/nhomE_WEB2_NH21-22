@@ -5,6 +5,11 @@ namespace Database\Seeders;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+<<<<<<< HEAD
+=======
+
+use Illuminate\Database\Seeder;
+>>>>>>> kien_nhomE
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -23,25 +28,94 @@ class DatabaseSeeder extends Seeder
         DB::table('others')->insert([
             [
                 'product_id' => '1',
+<<<<<<< HEAD
                 'user_id' => '1',
+=======
+                'user_id' => '2',
+>>>>>>> kien_nhomE
                 'like' => '1',
                 'submit' => 'Good!',
                 'star' => '4',
             ],
+<<<<<<< HEAD
         ]);
 
 <<<<<<< HEAD
+=======
+            [
+                'product_id' => '1',
+                'user_id' => '3',
+                'like' => '1',
+                'submit' => 'Verry good!',
+                'star' => '5',
+            ],
+            [
+                'product_id' => '2',
+                'user_id' => '2',
+                'like' => '0',
+                'submit' => 'Bad!',
+                'star' => '3',
+            ],
+            [
+                'product_id' => '2',
+                'user_id' => '3',
+                'like' => '0',
+                'submit' => 'Verry bad!',
+                'star' => '2',
+            ],
+        ]);
+
+>>>>>>> kien_nhomE
         // Table detail
         DB::table('details')->insert([
             [
                 'payment_id' => '1',
                 'product_id' => '1',
                 'quantity' => '2',
+<<<<<<< HEAD
             ],
+=======
+                'address' => 'quang binh',
+                'telephone' => '0867',
+                'status' => '0',
+            ],
+            [
+                'payment_id' => '1',
+                'product_id' => '2',
+                'quantity' => '1',
+                'address' => 'quang binh',
+                'telephone' => '0867',
+                'status' => '0',
+            ],
+            [
+                'payment_id' => '2',
+                'product_id' => '3',
+                'quantity' => '3',
+                'address' => 'quang binh',
+                'telephone' => '0867',
+                'status' => '0',
+            ]
+>>>>>>> kien_nhomE
         ]);
 
         // Table Payment
         DB::table('payments')->insert([
+<<<<<<< HEAD
+=======
+            [
+                'user_id' => '2',
+                'discount' => '3',
+                'status' => '0',
+                'created_at' => '2022-03-05',
+
+            ],
+            [
+                'user_id' => '3',
+                'discount' => '5',
+                'status' => '0',
+                'created_at' => '2022-01-21',
+            ]
+>>>>>>> kien_nhomE
         ]);
 
         //Table Users
@@ -53,11 +127,31 @@ class DatabaseSeeder extends Seeder
                 'admin' => '1',
             ],
             [
+<<<<<<< HEAD
                 'name' => 'thang',
                 'email' => 'thang@gmail.com',
                 'password' => Hash::make('thang123456'),
                 'admin' => '0',
             ],
+=======
+                'name' => 'user1',
+                'email' => 'user1@gmail.com',
+                'password' => Hash::make('user123456'),
+                'admin' => '0',
+            ],
+            [
+                'name' => 'user2',
+                'email' => 'user2@gmail.com',
+                'password' => Hash::make('user23456'),
+                'admin' => '0',
+            ],
+            [
+                'name' => 'user3',
+                'email' => 'user3@gmail.com',
+                'password' => Hash::make('user3456'),
+                'admin' => '0',
+            ]
+>>>>>>> kien_nhomE
         ]);
 
         // Table Protypes
@@ -75,12 +169,15 @@ class DatabaseSeeder extends Seeder
                 'manu_name' => 'Tui',
             ],
         ]);
+<<<<<<< HEAD
 =======
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
 >>>>>>> nhomE_thinh
+=======
+>>>>>>> kien_nhomE
         // Table Manufacturer
         DB::table('manufacturers')->insert([
             [
@@ -97,6 +194,9 @@ class DatabaseSeeder extends Seeder
             ],
         ]);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> kien_nhomE
 
           // Table Products
           DB::table('products')->insert([
@@ -567,7 +667,10 @@ class DatabaseSeeder extends Seeder
 
             
         ]);
+<<<<<<< HEAD
 =======
 >>>>>>> nhomE_thinh
+=======
+>>>>>>> kien_nhomE
     }
 }

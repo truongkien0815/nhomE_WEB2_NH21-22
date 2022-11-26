@@ -20,6 +20,9 @@ class User extends Authenticatable
         return $this->hasMany(Payment::class, 'user_id');
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> kien_nhomE
 
 =======
 >>>>>>> nhomE_thinh

@@ -75,7 +75,11 @@ class MyController extends Controller
         return redirect()->route('index');
     }
 
+<<<<<<< HEAD
     function createpayment()
+=======
+    function createpayment(Request $request)
+>>>>>>> kien_nhomE
     {
         if (!$this->userCan('view-page-guest')) {
             abort('404', __('NOT FOUND'));
@@ -85,6 +89,10 @@ class MyController extends Controller
         $allproducts = Product::all();
         $payment = new Payment;
         $payment->user_id = $user->id;
+<<<<<<< HEAD
+=======
+        $payment->status = 0;
+>>>>>>> kien_nhomE
         if (count($allpayments) < 5) {
             $payment->discount = "3";
         } elseif (count($allpayments) > 10) {
@@ -98,6 +106,15 @@ class MyController extends Controller
                 $detail = new Detail;
                 $detail->product_id = $value->product_id;
                 $detail->payment_id = $payment->payment_id;
+<<<<<<< HEAD
+=======
+                $detail->status = 0;
+                $detail->address = $request->address;
+                $detail->telephone = $request->telephone;
+
+
+
+>>>>>>> kien_nhomE
                 $detail->quantity = session()->get('carts' . $value->product_id);
                 $detail->save();
                 session()->forget('carts' . $value->product_id);
@@ -520,4 +537,8 @@ class MyController extends Controller
             'topselling4' => $topselling4,
         ]);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> kien_nhomE

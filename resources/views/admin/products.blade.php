@@ -163,6 +163,7 @@
             @endforeach
           </tbody>
         </table>
+        {{ $allproducts->links()}}
       </div>
       <!-- /.card-body -->
     </div>

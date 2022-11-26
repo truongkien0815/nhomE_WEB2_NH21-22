@@ -22,6 +22,10 @@ class Product extends Model
         return $this->belongsTo(Protype::class, 'manu_id');
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    
+>>>>>>> kien_nhomE
 }
 =======
 }

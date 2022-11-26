@@ -6,10 +6,15 @@ use App\Http\Controllers\MyController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProtypesController;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use App\Http\Controllers\OthersController;
 use App\Http\Controllers\PaymentsController;
 =======
 >>>>>>> nhomE_thinh
+=======
+use App\Http\Controllers\OthersController;
+use App\Http\Controllers\PaymentsController;
+>>>>>>> kien_nhomE
 use App\Http\Controllers\ManufacturersController;
 use App\Http\Controllers\UserController;
 /*
@@ -25,6 +30,9 @@ use App\Http\Controllers\UserController;
  
 require __DIR__ . '/auth.php';   
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> kien_nhomE
 
 Route::middleware(['auth'])->group(function () {
     // Admin
@@ -37,17 +45,28 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/detail', DetailsController::class);
     Route::resource('/other', OthersController::class);
 });
+<<<<<<< HEAD
+=======
+Route::get('/payment_del/{id?}', [PaymentsController::class,'delete']);
+Route::post('/xacnhan/{name?}', [DetailsController::class,'update_hoanthanh']);
+Route::get('/all_order', [DetailsController::class,'index_all']);
+Route::get('/detailhoanthanh', [DetailsController::class,'index_hoanhthanh']);
+>>>>>>> kien_nhomE
 
 Route::get('/mail', [MyController::class, 'mail']); 
 Route::get('/createpayment', [MyController::class, 'createpayment']); 
 Route::get('/payments', [MyController::class, 'payments']); 
+<<<<<<< HEAD
 Route::get('/user', [MyController::class, 'user']); 
+=======
+>>>>>>> kien_nhomE
 Route::get('/sort/{option}/{key?}', [MyController::class, 'sort']); 
 Route::get('/searchoption/{option}/{key?}', [MyController::class, 'searchoption']); 
 Route::get('/search', [MyController::class, 'search']); 
 Route::get('/others/clearcompare', [MyController::class, 'clearcompare']);
 Route::get('/others/{name}/{product_id}/{user_id}/{option?}/{key?}', [MyController::class, 'others'])->name('others');
 Route::get('/carts/{action?}/{product_id?}', [MyController::class, 'carts'])->name('carts');
+<<<<<<< HEAD
 =======
 
 Route::middleware(['auth'])->group(function () {
@@ -66,6 +85,8 @@ Route::get('/sort/{option}/{key?}', [MyController::class, 'sort']);
 Route::get('/searchoption/{option}/{key?}', [MyController::class, 'searchoption']); 
 Route::get('/search', [MyController::class, 'search']); 
 >>>>>>> nhomE_thinh
+=======
+>>>>>>> kien_nhomE
 Route::get('/star/{manu_id}/{product_id}/{user_id}', [MyController::class, 'star']);
 Route::get('/products/{product_id}/{manu_id}', [MyController::class, 'products'])->name('products');
 Route::get('/{name?}', [MyController::class, 'index'])->name('index');

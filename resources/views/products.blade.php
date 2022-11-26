@@ -223,6 +223,7 @@
                                 <div class="input-rating">
                                     <span>Your Rating: </span>
                                     <div class="user_star_rating">
+<<<<<<< HEAD
                                         <input class="fa fa-star" id="star1" name="rating" value="1" type="radio" aria-hidden="true" required><label
                                             for="star1"></label>
                                         <input class="fa fa-star" id="star2" name="rating" value="2" type="radio" aria-hidden="true" required><label
@@ -233,6 +234,13 @@
                                             for="star4"></label>
                                         <input class="fa fa-star" id="star5" name="rating" value="5" type="radio" aria-hidden="true" required><label
                                             for="star5"></label>
+=======
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+>>>>>>> kien_nhomE
                                     </div>
                                 </div>
                                 <button class="primary-btn">Submit</button>
@@ -250,6 +258,7 @@
                                 <div class="input-rating">
                                     <span>Your Rating: </span>
                                     <div class="user_star_rating">
+<<<<<<< HEAD
                                         <input class="fa fa-star" id="star1" name="rating" value="1" type="radio" aria-hidden="true" required><label
                                             for="star1"></label>
                                         <input class="fa fa-star" id="star2" name="rating" value="2" type="radio" aria-hidden="true" required><label
@@ -260,6 +269,13 @@
                                             for="star5"></label>
                                         <input class="fa fa-star" id="star5" name="rating" value="5" type="radio" aria-hidden="true" required><label
                                             for="star5"></label>
+=======
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+>>>>>>> kien_nhomE
                                     </div>
                                 </div>
                                 <button id="review_submit" type="submit" class="red_button review_submit_btn trans_300"
@@ -285,7 +301,11 @@
                 <div class="benefit_item d-flex flex-row align-items-center">
                     <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
                     <div class="benefit_content">
+<<<<<<< HEAD
                         <h6>free shipping:</h6>
+=======
+                        <h6>free shipping</h6>
+>>>>>>> kien_nhomE
                         <p>Suffered Alteration in Some Form</p>
                     </div>
                 </div>

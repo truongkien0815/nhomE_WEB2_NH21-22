@@ -21,13 +21,50 @@ class DetailsController extends Controller
         $user = Auth::user();
         return Gate::forUser($user)->allows($action, $option);
     }
+<<<<<<< HEAD
 
+=======
+    public function index_all()
+    {
+        if (!$this->userCan('view-page-admin')) {
+            abort('404', __('NOT FOUND'));
+        }
+        $alldetails = Detail::paginate(5);
+        $allproducts = Product::all();
+        $allpayments = Payment::all();
+        return view('admin.details_all', [
+            'alldetails' => $alldetails,
+            'allproducts' => $allproducts,
+            'allpayments' => $allpayments,
+        ]);
+    }
+    // don da giao
+    public function index_hoanhthanh()
+    {
+        if (!$this->userCan('view-page-admin')) {
+            abort('404', __('NOT FOUND'));
+        }
+       
+        $alldetails =  Detail::where('status','=',1)->paginate(5);
+        $allproducts = Product::all();
+        $allpayments = Payment::all();
+        return view('admin.details_hoanthanh', [
+            'alldetails' => $alldetails,
+            'allproducts' => $allproducts,
+            'allpayments' => $allpayments,
+        ]);
+    }
+>>>>>>> kien_nhomE
     public function index()
     {
         if (!$this->userCan('view-page-admin')) {
             abort('404', __('NOT FOUND'));
         }
+<<<<<<< HEAD
         $alldetails = Detail::all();
+=======
+        $alldetails = Detail::where('status','=',0)->paginate(5);
+>>>>>>> kien_nhomE
         $allproducts = Product::all();
         $allpayments = Payment::all();
         return view('admin.details', [
@@ -37,6 +74,10 @@ class DetailsController extends Controller
         ]);
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> kien_nhomE
     /**
      * Show the form for creating a new resource.
      *
@@ -70,6 +111,15 @@ class DetailsController extends Controller
         $detail->product_id = $request->product_id;
         $detail->payment_id = $request->payment_id;
         $detail->quantity = $request->quantity;
+<<<<<<< HEAD
+=======
+        $detail->status = 0;
+        $detail->address = 'quang binh';
+        $detail->telephone = '082663364';
+
+
+
+>>>>>>> kien_nhomE
         $detail->save();
         return redirect()->action([DetailsController::class, 'index']);
     }
@@ -120,6 +170,10 @@ class DetailsController extends Controller
         $detail->payment_id = $request->payment_id;
         $detail->quantity = $request->quantity;
         $detail->save();
+<<<<<<< HEAD
+=======
+        // return redirect()->back();
+>>>>>>> kien_nhomE
         return redirect()->action([DetailsController::class, 'index']);
     }
 
@@ -136,6 +190,26 @@ class DetailsController extends Controller
         }
         $detail = Detail::find($id);
         $detail->delete();
+<<<<<<< HEAD
         return redirect()->action([DetailsController::class, 'index']);
     }
 }
+=======
+        return redirect()->back();
+        // return redirect()->action([DetailsController::class, 'index']);
+    }
+
+    public function update_hoanthanh(Request $request, $id)
+    {
+        if (!$this->userCan('view-page-admin')) {
+            abort('404', __('NOT FOUND'));
+        }
+        $detail = Detail::find($id);
+       
+        $detail->status = 1;
+        $detail->save();
+        return redirect()->back();
+        // return redirect()->action([DetailsController::class, 'index']);
+    }
+}
+>>>>>>> kien_nhomE

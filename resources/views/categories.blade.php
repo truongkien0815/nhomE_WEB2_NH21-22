@@ -387,7 +387,11 @@
 					<div class="benefit_item d-flex flex-row align-items-center">
 						<div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
 						<div class="benefit_content">
+<<<<<<< HEAD
 							<h6>free shipping;</h6>
+=======
+							<h6>free shipping</h6>
+>>>>>>> kien_nhomE
 							<p>Suffered Alteration in Some Form</p>
 						</div>
 					</div>
