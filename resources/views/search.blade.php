@@ -156,8 +156,6 @@
                                                 src="{{ asset('img/'.$value->image) }}" alt="" style="height: 225px;">
                                         </div>
                                         <!--  -->
-<<<<<<< HEAD
-=======
 										<?php if ($user == NULL) { ?>
 									<form action="{{ url('/others/search/'.$value->product_id.'/0/'.session()->get('option').'/'.session()->get('key')) }}" method="get">
 										<div class="product-btns">
@@ -182,16 +180,12 @@
 										</div>
 									</form>
 								<?php } ?>
->>>>>>> kien_nhomE
 										<!--  -->
                                         <div
                                             class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
                                             <?php if ($value->sale > 0) { ?>
                                             <div class="product-label">
-<<<<<<< HEAD
-=======
                                                 <span class="sale">{{ "-".$value->sale."%" }}</span>
->>>>>>> kien_nhomE
                                                 <span class="new">NEW</span>
                                             </div>
                                             <?php } else { ?>
@@ -207,11 +201,7 @@
                                             <?php if ($value->sale > 0) { ?>
                                             <h4 class="product_price">
                                                 {{ number_format($value->price - ($value->price * $value->sale / 100)) . "đ " }}<del
-<<<<<<< HEAD
-                                                    class="product-old-price"></del>
-=======
                                                     class="product-old-price">{{ number_format($value->price)."đ" }}</del>
->>>>>>> kien_nhomE
                                             </h4>
                                             <?php } else { ?>
                                             <h4 class="product_price">{{ number_format($value->price)."đ" }}</h4>
@@ -241,13 +231,14 @@
                                         </ul>
                                     </li>
                                 </ul>
-<<<<<<< HEAD
-=======
-                             
->>>>>>> kien_nhomE
-                                <span class="showing_results">Showing 1–3 of 12 results</span>
+                                {{ $search->appends(request()->all())->links() }}
+
+
+
+                                
+                                <!-- <span class="showing_results">Showing 1–3 of 12 results</span> -->
                                 <div class="pages d-flex flex-row align-items-center">
-                                    <div class="page_current">
+                                    <!-- <div class="page_current">
                                         <span>1</span>
                                         <ul class="page_selection">
                                             <li><a href="#">1</a></li>
@@ -257,9 +248,11 @@
                                     </div>
                                     <div class="page_total"><span>of</span> 3</div>
                                     <div id="next_page_1" class="page_next"><a href="#"><i
-                                                class="fa fa-long-arrow-right" aria-hidden="true"></i></a></div>
+                                                class="fa fa-long-arrow-right" aria-hidden="true"></i></a></div> -->
                                 </div>
 
+
+                                
                             </div>
 
                         </div>
@@ -279,11 +272,7 @@
                 <div class="benefit_item d-flex flex-row align-items-center">
                     <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
                     <div class="benefit_content">
-<<<<<<< HEAD
-                        <h6>free shipping:</h6>
-=======
                         <h6>free shipping</h6>
->>>>>>> kien_nhomE
                         <p>Suffered Alteration in Some Form</p>
                     </div>
                 </div>

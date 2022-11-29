@@ -54,15 +54,7 @@
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
-<<<<<<< HEAD
-                <x-primary-button class="ml-4">
-                    <a href=" {{'login'}}">
-                    {{ __('Log in') }}
-                    </a>
-                </x-primary-button>
-=======
 
->>>>>>> kien_nhomE
                 <x-primary-button class="ml-4">
                     {{ __('Register') }}
                 </x-primary-button>

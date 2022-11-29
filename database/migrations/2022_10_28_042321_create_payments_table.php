@@ -17,13 +17,10 @@ return new class extends Migration
             $table->id('payment_id');
             $table->integer('user_id');
             $table->integer('discount');
-<<<<<<< HEAD
-=======
             $table->integer('status');
             
 
            
->>>>>>> kien_nhomE
             $table->timestamps();
         });
     }

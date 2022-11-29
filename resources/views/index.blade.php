@@ -58,20 +58,6 @@
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
                             <div class="row">
-<<<<<<< HEAD
-                                <!-- <li class="grid_sorting_button button d-flex flex-column justify-content-center"><a
-                                        data-toggle="tab" href="#np">Alls</a></li> -->
-                                        <li class="grid_sorting_button button d-flex flex-column justify-content-center"><a
-                                        data-toggle="tab" id="type" data-type="0" href="#np">Alls</a></li>
-                              
-
-                                @foreach($allmanus as $value)
-                                <!-- <li><a class="grid_sorting_button button d-flex flex-column justify-content-center"
-                                        data-toggle="tab" href="#np{{ $value->manu_id }}">{{ $value->manu_name }}</a>
-                                </li> -->
-                                
-                                <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" id="type" data-type="{{$value->manu_id}}" data-userid="" >{{ $value->manu_name }}</li>
-=======
                                 @if(isset(Auth::user()->name))
                                 <li class="grid_sorting_button button d-flex flex-column justify-content-center"><a
                                         data-toggle="tab" id="type" data-type="0" data-userid="{{Auth::user()->id}}"
@@ -91,7 +77,6 @@
                                     id="type" data-type="{{$value->manu_id}}" data-userid="1">{{ $value->manu_name }}
                                 </li>
                                 @endif
->>>>>>> kien_nhomE
                                 @endforeach
                             </div>
 
@@ -104,63 +89,6 @@
         <div class="row tt">
             <div class="col">
                 <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
-<<<<<<< HEAD
-                        <!-- Slide 1 -->
-                        @foreach($newproducts as $value)
-                        <div class="product-item women">
-                            <div class="product product_filter">
-                                <div class="product_image">
-                                    <img href="{{ url('/products/'.$value->product_id.'/'.$value->manu_id) }}"
-                                        src="{{ asset('img/'.$value->image) }}" alt="" style="height: 225px;">
-                                </div>
-                                <!--  -->   
-                                <!--  -->
-                                <div
-                                    class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
-                                    <?php if ($value->sale > 0) { ?>
-                                    <div class="product-label">
-                                        <span class="new">NEW</span>
-                                    </div>
-                                    <?php } else { ?>
-                                    <div class="product-label">
-                                        <span class="new">NEW</span>
-                                    </div>
-                                    <?php } ?>
-                                </div>
-                                <div class="product_info">
-                                    <h6 class="product_name"><a
-                                            href="{{ url('/products/'.$value->product_id.'/'.$value->manu_id) }}">{{ $value->product_name }}</a>
-                                    </h6>
-                                    <?php if ($value->sale > 0) { ?>
-                                    <h6 class="product_price">
-                                        {{ number_format($value->price - ($value->price * $value->sale / 100)) . "đ " }}<del
-                                            class="product-old-price"></del>
-                                    </h6>
-                                    <?php } else { ?>
-                                    <h6 class="product_price">{{ number_format($value->price)."đ" }}</h6>
-                                    <?php } ?>
-                                </div>
-                            </div>
-                            <div class="red_button add_to_cart_button"><a
-                                    href="{{ url('/carts/add/'.$value->product_id) }}">
-                                    </i> add to cart</button>
-                                </a></div>
-                        </div>
-                        @endforeach
-                    </div>
-
-                    <!-- Slider Navigation -->
-
-                    <div
-                        class="product_slider_nav_left product_slider_nav d-flex align-items-center justify-content-center flex-column">
-                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                    </div>
-                    <div
-                        class="product_slider_nav_right product_slider_nav d-flex align-items-center justify-content-center flex-column">
-                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                    </div>
-                </div>
-=======
                     <!-- Slide 1 -->
                     @foreach($newproducts as $value)
                     <div class="product-item women">
@@ -243,7 +171,6 @@
                     <i class="fa fa-chevron-right" aria-hidden="true"></i>
                 </div>
             </div>
->>>>>>> kien_nhomE
         </div>
     </div>
 </div>
@@ -317,10 +244,7 @@
                                     class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
                                     <?php if ($value->sale > 0) { ?>
                                     <div class="product-label">
-<<<<<<< HEAD
-=======
                                         <span class="sale">{{ "-".$value->sale."%" }}</span>
->>>>>>> kien_nhomE
                                         <span class="new">NEW</span>
                                     </div>
                                     <?php } else { ?>
@@ -335,12 +259,8 @@
                                     </h6>
                                     <?php if ($value->sale > 0) { ?>
                                     <div class="product_price">
-<<<<<<< HEAD
-                                        {{ number_format($value->price - ($value->price * $value->sale / 100)) . "đ " }}
-=======
                                         {{ number_format($value->price - ($value->price * $value->sale / 100)) . "đ " }}<del
                                             class="product-old-price">{{ number_format($value->price)."đ" }}
->>>>>>> kien_nhomE
                                     </div>
                                     <?php } ?>
                                 </div>
@@ -374,11 +294,7 @@
                 <div class="benefit_item d-flex flex-row align-items-center">
                     <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
                     <div class="benefit_content">
-<<<<<<< HEAD
-                        <h6>free shipping:</h6>
-=======
                         <h6>free shipping</h6>
->>>>>>> kien_nhomE
                         <p>Suffered Alteration in Some Form</p>
                     </div>
                 </div>

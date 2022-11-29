@@ -5,16 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
-<<<<<<< HEAD
-=======
 
 use Illuminate\Database\Seeder;
->>>>>>> kien_nhomE
 
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Hash;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -28,20 +21,11 @@ class DatabaseSeeder extends Seeder
         DB::table('others')->insert([
             [
                 'product_id' => '1',
-<<<<<<< HEAD
-                'user_id' => '1',
-=======
                 'user_id' => '2',
->>>>>>> kien_nhomE
                 'like' => '1',
                 'submit' => 'Good!',
                 'star' => '4',
             ],
-<<<<<<< HEAD
-        ]);
-
-<<<<<<< HEAD
-=======
             [
                 'product_id' => '1',
                 'user_id' => '3',
@@ -65,16 +49,12 @@ class DatabaseSeeder extends Seeder
             ],
         ]);
 
->>>>>>> kien_nhomE
         // Table detail
         DB::table('details')->insert([
             [
                 'payment_id' => '1',
                 'product_id' => '1',
                 'quantity' => '2',
-<<<<<<< HEAD
-            ],
-=======
                 'address' => 'quang binh',
                 'telephone' => '0867',
                 'status' => '0',
@@ -95,13 +75,10 @@ class DatabaseSeeder extends Seeder
                 'telephone' => '0867',
                 'status' => '0',
             ]
->>>>>>> kien_nhomE
         ]);
 
         // Table Payment
         DB::table('payments')->insert([
-<<<<<<< HEAD
-=======
             [
                 'user_id' => '2',
                 'discount' => '3',
@@ -115,7 +92,6 @@ class DatabaseSeeder extends Seeder
                 'status' => '0',
                 'created_at' => '2022-01-21',
             ]
->>>>>>> kien_nhomE
         ]);
 
         //Table Users
@@ -125,33 +101,29 @@ class DatabaseSeeder extends Seeder
                 'email' => 'admin@gmail.com',
                 'password' => Hash::make('admin123456'),
                 'admin' => '1',
+                'created_at' => '2022-11-20',
             ],
             [
-<<<<<<< HEAD
-                'name' => 'thang',
-                'email' => 'thang@gmail.com',
-                'password' => Hash::make('thang123456'),
-                'admin' => '0',
-            ],
-=======
                 'name' => 'user1',
                 'email' => 'user1@gmail.com',
                 'password' => Hash::make('user123456'),
                 'admin' => '0',
+                'created_at' => '2022-11-20',
             ],
             [
                 'name' => 'user2',
                 'email' => 'user2@gmail.com',
                 'password' => Hash::make('user23456'),
                 'admin' => '0',
+                'created_at' => '2022-11-20',
             ],
             [
                 'name' => 'user3',
                 'email' => 'user3@gmail.com',
                 'password' => Hash::make('user3456'),
                 'admin' => '0',
+                'created_at' => '2022-11-20',
             ]
->>>>>>> kien_nhomE
         ]);
 
         // Table Protypes
@@ -169,15 +141,6 @@ class DatabaseSeeder extends Seeder
                 'manu_name' => 'Tui',
             ],
         ]);
-<<<<<<< HEAD
-=======
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
->>>>>>> nhomE_thinh
-=======
->>>>>>> kien_nhomE
         // Table Manufacturer
         DB::table('manufacturers')->insert([
             [
@@ -193,10 +156,6 @@ class DatabaseSeeder extends Seeder
                 'manu_name' => 'LouisVuiton',
             ],
         ]);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> kien_nhomE
 
           // Table Products
           DB::table('products')->insert([
@@ -667,10 +626,5 @@ class DatabaseSeeder extends Seeder
 
             
         ]);
-<<<<<<< HEAD
-=======
->>>>>>> nhomE_thinh
-=======
->>>>>>> kien_nhomE
     }
 }

@@ -21,14 +21,12 @@ class DetailsController extends Controller
         $user = Auth::user();
         return Gate::forUser($user)->allows($action, $option);
     }
-<<<<<<< HEAD
-
-=======
     public function index_all()
     {
         if (!$this->userCan('view-page-admin')) {
             abort('404', __('NOT FOUND'));
         }
+        
         $alldetails = Detail::paginate(5);
         $allproducts = Product::all();
         $allpayments = Payment::all();
@@ -54,17 +52,12 @@ class DetailsController extends Controller
             'allpayments' => $allpayments,
         ]);
     }
->>>>>>> kien_nhomE
     public function index()
     {
         if (!$this->userCan('view-page-admin')) {
             abort('404', __('NOT FOUND'));
         }
-<<<<<<< HEAD
-        $alldetails = Detail::all();
-=======
         $alldetails = Detail::where('status','=',0)->paginate(5);
->>>>>>> kien_nhomE
         $allproducts = Product::all();
         $allpayments = Payment::all();
         return view('admin.details', [
@@ -74,10 +67,7 @@ class DetailsController extends Controller
         ]);
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> kien_nhomE
     /**
      * Show the form for creating a new resource.
      *
@@ -111,15 +101,12 @@ class DetailsController extends Controller
         $detail->product_id = $request->product_id;
         $detail->payment_id = $request->payment_id;
         $detail->quantity = $request->quantity;
-<<<<<<< HEAD
-=======
         $detail->status = 0;
-        $detail->address = 'quang binh';
-        $detail->telephone = '082663364';
+        $detail->address = 'Thu Duc,Ho Chi Minh';
+        $detail->telephone = '0826333666';
 
 
 
->>>>>>> kien_nhomE
         $detail->save();
         return redirect()->action([DetailsController::class, 'index']);
     }
@@ -170,10 +157,7 @@ class DetailsController extends Controller
         $detail->payment_id = $request->payment_id;
         $detail->quantity = $request->quantity;
         $detail->save();
-<<<<<<< HEAD
-=======
         // return redirect()->back();
->>>>>>> kien_nhomE
         return redirect()->action([DetailsController::class, 'index']);
     }
 
@@ -190,11 +174,6 @@ class DetailsController extends Controller
         }
         $detail = Detail::find($id);
         $detail->delete();
-<<<<<<< HEAD
-        return redirect()->action([DetailsController::class, 'index']);
-    }
-}
-=======
         return redirect()->back();
         // return redirect()->action([DetailsController::class, 'index']);
     }
@@ -211,5 +190,14 @@ class DetailsController extends Controller
         return redirect()->back();
         // return redirect()->action([DetailsController::class, 'index']);
     }
+    public function update_danhan(Request $request, $id)
+    {
+       
+        $detail = Detail::find($id);
+       
+        $detail->status = 2;
+        $detail->save();
+        return redirect()->back();
+        
+    }
 }
->>>>>>> kien_nhomE

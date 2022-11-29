@@ -5,10 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use App\Models\User;
-<<<<<<< HEAD
-=======
 use Illuminate\Support\Facades\Hash;
->>>>>>> kien_nhomE
 
 class UserController extends Controller
 {
@@ -28,11 +25,7 @@ class UserController extends Controller
         if (!$this->userCan('view-page-admin')) {
             abort('404', __('NOT FOUND'));
         }
-<<<<<<< HEAD
-        $allusers = User::all();
-=======
         $allusers = User::paginate(5);
->>>>>>> kien_nhomE
         return view('admin.users', [
             'allusers' => $allusers,
         ]);
@@ -47,11 +40,7 @@ class UserController extends Controller
         if (!$this->userCan('view-page-admin')) {
             abort('404', __('BNOT FOUND!'));
         }
-<<<<<<< HEAD
-        return view('admin.addmanufacturer');
-=======
         return view('admin.adduser');
->>>>>>> kien_nhomE
     }
 
     /**
@@ -66,9 +55,6 @@ class UserController extends Controller
             abort('404', __('NOT FOUND!'));
         }
         $name = new User;
-<<<<<<< HEAD
-        $name->name = $request->name;
-=======
        
 
         $name->name = $request->name;
@@ -77,7 +63,6 @@ class UserController extends Controller
         $name->admin = 0;
 
        
->>>>>>> kien_nhomE
         $name->save();
         return redirect()->action([UserController::class, 'index']);
     }
@@ -93,12 +78,9 @@ class UserController extends Controller
         if (!$this->userCan('view-page-admin')) {
             abort('404', __('NOT FOUND!'));
         }
-<<<<<<< HEAD
-=======
        
         $user = User::find($id);
         return view('admin.edituser')->with('user',$user);
->>>>>>> kien_nhomE
     }
 
     /**
@@ -132,11 +114,8 @@ class UserController extends Controller
         }
         $name = User::find($id);
         $name->name = $request->name;
-<<<<<<< HEAD
-=======
         $name->email = $request->email;
         $name->password =  Hash::make($request->pass);
->>>>>>> kien_nhomE
         $name->save();
         return redirect()->action([UserController::class, 'index']);
     }

@@ -13,12 +13,4 @@ class Manufacturer extends Model
     {
         return $this->hasMany(Product::class, 'manu_id');
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> nhomE_thinh
-=======
-}
->>>>>>> kien_nhomE
