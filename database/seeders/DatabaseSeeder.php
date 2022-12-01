@@ -101,24 +101,28 @@ class DatabaseSeeder extends Seeder
                 'email' => 'admin@gmail.com',
                 'password' => Hash::make('admin123456'),
                 'admin' => '1',
+                'created_at' => '2022-11-20',
             ],
             [
                 'name' => 'user1',
                 'email' => 'user1@gmail.com',
                 'password' => Hash::make('user123456'),
                 'admin' => '0',
+                'created_at' => '2022-11-20',
             ],
             [
                 'name' => 'user2',
                 'email' => 'user2@gmail.com',
                 'password' => Hash::make('user23456'),
                 'admin' => '0',
+                'created_at' => '2022-11-20',
             ],
             [
                 'name' => 'user3',
                 'email' => 'user3@gmail.com',
                 'password' => Hash::make('user3456'),
                 'admin' => '0',
+                'created_at' => '2022-11-20',
             ]
         ]);
 

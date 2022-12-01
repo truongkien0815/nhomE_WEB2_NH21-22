@@ -54,69 +54,122 @@
                 </div>
                 <div><strong>CUSTOMER: {{ $user->name }} </strong></div>
                 <div>created at: {{ date('d/m/Y h:i:s', strtotime($payment->created_at)) }}</div>
-
-
                 <hr>
                 <div class="order-summary">
-                    <div class="order-col">
-                        <div><strong>PRODUCT</strong></div>
-                        <div><strong>img</strong></div>
-                        <div><strong>TOTAL</strong></div>
-
-
-
-                    </div>
+                    <!--  -->
                     <div class="order-products">
+                        <div class="row">
+                            <div class="col-2"><strong>Image</strong></div>
+                            <div class="col"><strong>Information</strong></div>
+                            <div class="col"><strong>Price</strong></div>
+                            <div class="col"><strong>Status</strong></div>
+                        </div>
                         <?php $total = 0;
                             foreach ($alldetails as $detail) {
                                 if ($detail->payment_id ==  $payment->payment_id) {
                                     if ($detail->products->sale > 0) {
-                                        $total += $detail->quantity * $detail->products->price - ($detail->products->price * $detail->products->sale / 100); ?>
-                        <div class="order-col">
-                            <div>
-                                {{ $detail->products->product_name.' (quantity: '. $detail->quantity.', price: '.number_format($detail->products->price - ($detail->products->price * $detail->products->sale / 100)).'đ)'}}
+                                        $total += $detail->quantity * ($detail->products->price - ($detail->products->price * $detail->products->sale / 100)); ?>
+                        <div class="row">
+                            <div class="col-2"> <img src="{{url('img/'.$detail->products->image)}}" height="100px"
+                                    width="100px" alt=""></div>
+                            <div class="col">
+                                <div>
+                                    <a class="hh text-dark"
+                                        href="{{ url('/products/'.$detail->product_id.'/'.$detail->products->manu_id) }}">
+                                        {{ $detail->products->product_name}}</a>
+                                </div>
+                                <div>
+                                    {{ 'quantity: x'. $detail->quantity}}
+                                </div>
+                                <div>
+                                    {{ 'price: '.number_format($detail->products->price - ($detail->products->price * $detail->products->sale / 100)).'đ'}}
+                                </div>
                             </div>
-
-                            <img src="{{url('img/'.$detail->products->image)}}" height="100px" width="100px" alt="">
-                            <!-- <div class="product-widget">
-                                                
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img src="{{url('img/'.$detail->products->image)}}" alt="">
-                                                    </a>
-                                                </div>
-                                            </div> -->
-                            <div>
-                                {{ number_format($detail->quantity * $detail->products->price - ($detail->products->price * $detail->products->sale / 100)).'đ' }}
+                            <div class="col">
+                                {{ number_format($detail->quantity * ($detail->products->price - ($detail->products->price * $detail->products->sale / 100))).'đ' }}
                             </div>
+                            <div class="col">
+                                <?php 
+                            if($detail->status == 0)
+                            {
+                                echo 'Status: Chờ xác nhận'.'<br>';
+                            }
+                            elseif($detail->status == 1)
+                            {
+                                echo 'Status: Đang giao'.'<br>';
+                                ?>
+                                  <form action="{{ url('/da_nhan/'.$detail->detail_id) }}" method="post"
+                                    enctype="multipart/form-data">
+                                    @csrf
 
+                                    <button type="submit" class="btn btn-secondary btn-sm" style="background:orangered;">
+                                        Đã nhận được hàng
+                                    </button>
+                                </form>
+                                 
+                        <?php    }
+                        elseif($detail->status == 2) {
+                                 echo 'Đã nhận hàng';
+                        }
+                            ?>
+                            </div>
                         </div>
+                        <!--  -->
+
+                        <!--  -->
                         <?php } else {
                                         $total += $detail->quantity * $detail->products->price; ?>
-                        <div class="order-col">
-                            <div>
-                                {{ $detail->products->product_name.' (quantity: '. $detail->quantity.', price: '.number_format($detail->products->price).'đ)'}}
+                        <div class="row">
+                            <div class="col-2"> <img src="{{url('img/'.$detail->products->image)}}" height="100px"
+                                    width="100px" alt=""></div>
+                            <div class="col">
+                                <div>
+                                    <a class="hh text-dark"
+                                        href="{{ url('/products/'.$detail->product_id.'/'.$detail->products->manu_id) }}">
+                                        {{ $detail->products->product_name}}</a>
+                                </div>
+                                <div>
+                                    {{ 'quantity: x'. $detail->quantity}}
+                                </div>
+                                <div>
+                                    {{ 'price: '.number_format($detail->products->price).'đ'}}
+                                </div>
                             </div>
-                            <img src="{{url('img/'.$detail->products->image)}}" height="100px" width="100px" alt="">
-                            <!-- <div class="product-widget">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img src="{{url('img/'.$detail->products->image)}}" alt="">
-                                                    </a>
-                                                </div>
-                                            </div> -->
-                            <div>
-
+                            <div class="col">
                                 {{ number_format($detail->quantity * $detail->products->price).'đ' }}
                             </div>
+                            <div class="col">
+                                <?php 
+                            if($detail->status == 0)
+                            {
+                                echo 'Status: Chờ xác nhận'.'<br>';
+                            }
+                            elseif($detail->status == 1)
+                            {
+                                echo 'Status: Đang giao'.'<br>';
+                                ?>
+                                  <form action="{{ url('/da_nhan/'.$detail->detail_id) }}" method="post"
+                                    enctype="multipart/form-data">
+                                    @csrf
 
+                                    <button type="submit" class="btn btn-secondary btn-sm" style="background:orangered;">
+                                        Đã nhận được hàng
+                                    </button>
+                                </form>
+                                 
+                        <?php    }
+                        elseif($detail->status == 2) {
+                                 echo 'Đã nhận hàng';
+                        }
+                            ?>
+                            </div>
                         </div>
+                        <!--  -->
                         <?php  }
                                 }
                             } ?>
                     </div>
                     <hr>
-
                     <div class="order-col">
                         <div><strong>TOTAL</strong></div>
                         <div><strong class="order-total">
@@ -124,34 +177,7 @@
                             </strong>
                         </div>
                     </div>
-                    <div class="order-col">
-
-                        <?php  foreach ($alldetails as $detail) {
-                                if ($detail->payment_id ==  $payment->payment_id) {
-                                    if($detail->status == 0)
-                                    {
-                                        echo 'Status: Chờ xác nhận'.'<br>';
-                                    }
-                                    else
-                                    {
-                                        echo 'Status: Đang giao';
-                                    }
-                                }}
-                                    ?>
-                    </div>
-
-
                 </div>
-                <!-- <form action="{{ url('/payment_del/'. $payment->payment_id) }}" method="get">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger btn-sm">
-                      <i class="fas fa-trash">
-                      </i>
-                      Delete
-                    </button>
-                 
-                  </form> -->
                 <a href="{{ url('/payment_del/'. $payment->payment_id) }}" class="primary-btn order-submit">Delete</a>
             </div>
             <!-- /Order Details -->

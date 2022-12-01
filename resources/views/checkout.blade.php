@@ -73,7 +73,7 @@
                             <label for="#">
                                 <h5>Số điện thoại</h5>
                             </label>
-                            <input class="input" type="tel" required="required" pattern="^[0-9]*$" name="telephone"
+                            <input class="input" type="tel" required="required" pattern="^[0-9]{10,11}$" name="telephone"
                                 placeholder="Telephone">
                         </div>
 

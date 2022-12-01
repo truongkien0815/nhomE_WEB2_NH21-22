@@ -26,6 +26,7 @@ class DetailsController extends Controller
         if (!$this->userCan('view-page-admin')) {
             abort('404', __('NOT FOUND'));
         }
+        
         $alldetails = Detail::paginate(5);
         $allproducts = Product::all();
         $allpayments = Payment::all();
@@ -101,8 +102,8 @@ class DetailsController extends Controller
         $detail->payment_id = $request->payment_id;
         $detail->quantity = $request->quantity;
         $detail->status = 0;
-        $detail->address = 'quang binh';
-        $detail->telephone = '082663364';
+        $detail->address = 'Thu Duc,Ho Chi Minh';
+        $detail->telephone = '0826333666';
 
 
 
@@ -188,5 +189,15 @@ class DetailsController extends Controller
         $detail->save();
         return redirect()->back();
         // return redirect()->action([DetailsController::class, 'index']);
+    }
+    public function update_danhan(Request $request, $id)
+    {
+       
+        $detail = Detail::find($id);
+       
+        $detail->status = 2;
+        $detail->save();
+        return redirect()->back();
+        
     }
 }

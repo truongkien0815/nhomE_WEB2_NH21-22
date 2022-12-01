@@ -53,7 +53,7 @@
                             <th style="width: 20%" class="text-center">
                                 Product name
                             </th>
-                            <th style="width: 10%" class="text-center">
+                            <th style="width: 5%" class="text-center">
                                 Payment id
                             </th>
                             <th style="width: 5%" class="text-center">
@@ -63,13 +63,13 @@
                                 Quantity
                             </th>
                             <th style="width: 10%" class="text-center">
-                            Total money
+                                Total money
                             </th>
                             <th style="width: 20%" class="text-center">
                                 Address
                             </th>
-                            <th style="width: 20%" class="text-center">
-                               Telephone
+                            <th style="width: 10%" class="text-center">
+                                Telephone
                             </th>
                             <th style="width: 20%" class="text-center">
                                 Status
@@ -125,17 +125,18 @@
                             </td>
                             <td class="project-actions text-center">
                                 <form action="{{ url('/detail/'.$value->detail_id.'/edit') }}" method="get"
-                                    style="padding-bottom: 20px;">
+                                    style="padding-bottom: 5px;">
                                     <button class="btn btn-info btn-sm">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Edit
                                     </button>
                                 </form>
-                                <form action="{{ url('/detail/'.$value->detail_id) }}" method="post">
+                                <form action="{{ url('/detail/'.$value->detail_id) }}" method="post"
+                                    style="padding-bottom: 5px;">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger bt  n-sm">
+                                    <button class="btn btn-danger btn-sm">
                                         <i class="fas fa-trash">
                                         </i>
                                         Delete
@@ -146,15 +147,15 @@
                                     enctype="multipart/form-data">
                                     @csrf
 
-                                    <button type="submit" class="btn btn-success bt  n-sm">
+                                    <button type="submit" class="btn btn-success btn-sm">
 
                                         Xác nhận</button>
                                 </form>
 
                             </td>
-                            <td>
+                            <!-- <td>
 
-                            </td>
+                            </td> -->
                         </tr>
                         @endforeach
                     </tbody>
