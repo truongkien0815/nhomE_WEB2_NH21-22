@@ -68,7 +68,7 @@
                             <th style="width: 20%" class="text-center">
                                 Address
                             </th>
-                            <th style="width: 10%" class="text-center">
+                            <th style="width: 20%" class="text-center">
                                 Telephone
                             </th>
                             <th style="width: 20%" class="text-center">
@@ -114,28 +114,24 @@
 
                                 Chưa xử lý
 
-@elseif($value->status == 1)
-Đang giao
-@elseif($value->status == 2)
-                                Đã giao thành công
+
                                 @else
-                               lỗi
+                                Đã xử lý
                                 @endif
                             </td>
                             <td class="project-actions text-center">
                                 <form action="{{ url('/detail/'.$value->detail_id.'/edit') }}" method="get"
-                                    style="padding-bottom: 5px;">
+                                    style="padding-bottom: 20px;">
                                     <button class="btn btn-info btn-sm">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Edit
                                     </button>
                                 </form>
-                                <form action="{{ url('/detail/'.$value->detail_id) }}" method="post"
-                                style="padding-bottom: 5px;">
+                                <form action="{{ url('/detail/'.$value->detail_id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger btn-sm">
+                                    <button class="btn btn-danger bt  n-sm">
                                         <i class="fas fa-trash">
                                         </i>
                                         Delete
@@ -146,7 +142,7 @@
                                     enctype="multipart/form-data">
                                     @csrf
 
-                                    <button type="submit" class="btn btn-success btn-sm">
+                                    <button type="submit" class="btn btn-success bt  n-sm">
                                         Xác nhận
                                     </button>
                                 </form>

@@ -65,7 +65,7 @@
                             <th style="width: 20%" class="text-center">
                             Address
                             </th>
-                            <th style="width: 10%" class="text-center">
+                            <th style="width: 20%" class="text-center">
                             Telephone
                             </th>
                             <th style="width: 20%" class="text-center">
@@ -108,7 +108,7 @@
                                 <form action="{{ url('/detail/'.$value->detail_id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger btn-sm">
+                                    <button class="btn btn-danger bt  n-sm">
                                         <i class="fas fa-trash">
                                         </i>
                                         Delete

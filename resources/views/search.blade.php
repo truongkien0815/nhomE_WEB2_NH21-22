@@ -231,14 +231,10 @@
                                         </ul>
                                     </li>
                                 </ul>
-                                {{ $search->appends(request()->all())->links() }}
-
-
-
-                                
-                                <!-- <span class="showing_results">Showing 1–3 of 12 results</span> -->
+                             
+                                <span class="showing_results">Showing 1–3 of 12 results</span>
                                 <div class="pages d-flex flex-row align-items-center">
-                                    <!-- <div class="page_current">
+                                    <div class="page_current">
                                         <span>1</span>
                                         <ul class="page_selection">
                                             <li><a href="#">1</a></li>
@@ -248,11 +244,9 @@
                                     </div>
                                     <div class="page_total"><span>of</span> 3</div>
                                     <div id="next_page_1" class="page_next"><a href="#"><i
-                                                class="fa fa-long-arrow-right" aria-hidden="true"></i></a></div> -->
+                                                class="fa fa-long-arrow-right" aria-hidden="true"></i></a></div>
                                 </div>
 
-
-                                
                             </div>
 
                         </div>

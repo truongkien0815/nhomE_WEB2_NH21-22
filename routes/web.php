@@ -35,7 +35,6 @@ Route::middleware(['auth'])->group(function () {
 });
 Route::get('/payment_del/{id?}', [PaymentsController::class,'delete']);
 Route::post('/xacnhan/{name?}', [DetailsController::class,'update_hoanthanh']);
-Route::post('/da_nhan/{name?}', [DetailsController::class,'update_danhan']);
 Route::get('/all_order', [DetailsController::class,'index_all']);
 Route::get('/detailhoanthanh', [DetailsController::class,'index_hoanhthanh']);
 

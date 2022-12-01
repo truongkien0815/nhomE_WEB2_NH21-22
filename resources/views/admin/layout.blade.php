@@ -169,7 +169,7 @@
                                             <a href="{{ url('/detailhoanthanh') }}" class="nav-link">
                                                 <!-- <a href="../admin/orderon" class="nav-link"> -->
                                                 <i class="far fa-circle nav-icon"></i>
-                                                <p>Đơn đang giao</p>
+                                                <p>Đơn đã giao</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">

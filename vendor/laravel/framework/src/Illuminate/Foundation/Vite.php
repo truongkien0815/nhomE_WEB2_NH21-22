@@ -49,13 +49,6 @@ class Vite implements Htmlable
     protected $buildDirectory = 'build';
 
     /**
-     * The name of the manifest file.
-     *
-     * @var string
-     */
-    protected $manifestFilename = 'manifest.json';
-
-    /**
      * The script tag attributes resolvers.
      *
      * @var array
@@ -143,19 +136,6 @@ class Vite implements Htmlable
     public function withEntryPoints($entryPoints)
     {
         $this->entryPoints = $entryPoints;
-
-        return $this;
-    }
-
-    /**
-     * Set the filename for the manifest file.
-     *
-     * @param  string  $filename
-     * @return $this
-     */
-    public function useManifestFilename($filename)
-    {
-        $this->manifestFilename = $filename;
 
         return $this;
     }
@@ -458,13 +438,9 @@ class Vite implements Htmlable
             'rel' => 'preload',
             'as' => 'style',
             'href' => $url,
-            'nonce' => $this->nonce ?? false,
-            'crossorigin' => $this->resolveStylesheetTagAttributes($src, $url, $chunk, $manifest)['crossorigin'] ?? false,
         ] : [
             'rel' => 'modulepreload',
             'href' => $url,
-            'nonce' => $this->nonce ?? false,
-            'crossorigin' => $this->resolveScriptTagAttributes($src, $url, $chunk, $manifest)['crossorigin'] ?? false,
         ];
 
         $attributes = $this->integrityKey !== false
@@ -595,14 +571,10 @@ class Vite implements Htmlable
             return;
         }
 
-        $attributes = $this->parseAttributes([
-            'nonce' => $this->cspNonce(),
-        ]);
-
         return new HtmlString(
             sprintf(
                 <<<'HTML'
-                <script type="module" %s>
+                <script type="module">
                     import RefreshRuntime from '%s'
                     RefreshRuntime.injectIntoGlobalHook(window)
                     window.$RefreshReg$ = () => {}
@@ -610,7 +582,6 @@ class Vite implements Htmlable
                     window.__vite_plugin_react_preamble_installed__ = true
                 </script>
                 HTML,
-                implode(' ', $attributes),
                 $this->hotAsset('@react-refresh')
             )
         );
@@ -689,7 +660,7 @@ class Vite implements Htmlable
      */
     protected function manifestPath($buildDirectory)
     {
-        return public_path($buildDirectory.'/'.$this->manifestFilename);
+        return public_path($buildDirectory.'/manifest.json');
     }
 
     /**
@@ -735,7 +706,7 @@ class Vite implements Htmlable
      *
      * @return bool
      */
-    public function isRunningHot()
+    protected function isRunningHot()
     {
         return is_file($this->hotFile());
     }

@@ -299,17 +299,17 @@ class MyController extends Controller
         $allproducts = Product::all();
         $topsellings = Product::where('sale', '>', 0)->orderBy('sale', 'desc')->take(3)->get();
         if (request()->option == 'description') {
-            $search = Product::where('description', 'like', '%' . request()->key . '%')->paginate(10);
+            $search = Product::where('description', 'like', '%' . request()->key . '%')->get();
             $allsearchs = Product::where('description', 'like', '%' . request()->key . '%')->get();
         } else if (request()->option == 'product_name') {
-            $search = Product::where('product_name', 'like', '%' . request()->key . '%')->paginate(10);
+            $search = Product::where('product_name', 'like', '%' . request()->key . '%')->get();
             $allsearchs = Product::where('product_name', 'like', '%' . request()->key . '%')->get();
         } else if (request()->option == 'manu_name') {
             $manus = Protype::where('manu_name', 'like', '%' . request()->key . '%')->first();
-            $search = Product::where('manu_id', $manus->manu_id)->paginate(10);
+            $search = Product::where('manu_id', $manus->manu_id)->get();
             $allsearchs = Product::where('manu_id', $manus->manu_id)->get();
         } else if (request()->option == "alls") {
-            $search = Product::whereNotNull('manu_id')->paginate(10);
+            $search = Product::whereNotNull('manu_id')->get();
             $allsearchs = Product::whereNotNull('manu_id')->get();
         } else if (request()->option == "wishlist") {
             $allothers = Other::where('user_id', $user->id)->where('like', 1)->whereNotNull('like')->get('product_id');
@@ -317,7 +317,7 @@ class MyController extends Controller
             foreach ($allothers as $value) {
                 $arrothers[] = $value->product_id;
             }
-            $search = Product::whereIn('product_id', $arrothers)->paginate(10);
+            $search = Product::whereIn('product_id', $arrothers)->get();
             $allsearchs = Product::whereIn('product_id', $arrothers)->get();
         }
         return view('search', [
