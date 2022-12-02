@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -55,6 +56,9 @@ class UserController extends Controller
         }
         $name = new User;
         $name->name = $request->name;
+        $name->email = $request->email;
+        $name->password =  Hash::make($request->pass);
+        $name->admin = 0;
         $name->save();
         return redirect()->action([UserController::class, 'index']);
     }
@@ -105,6 +109,8 @@ class UserController extends Controller
         }
         $name = User::find($id);
         $name->name = $request->name;
+        $name->email = $request->email;
+        $name->password =  Hash::make($request->pass);
         $name->save();
         return redirect()->action([UserController::class, 'index']);
     }
