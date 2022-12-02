@@ -19,10 +19,6 @@ class User extends Authenticatable
     {
         return $this->hasMany(Payment::class, 'user_id');
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> nhomE_thinh
     /**
      * The attributes that are mass assignable.
      *

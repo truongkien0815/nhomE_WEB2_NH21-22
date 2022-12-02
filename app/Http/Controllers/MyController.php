@@ -479,7 +479,7 @@ class MyController extends Controller
         $newproduct2 = Product::where('manu_id', 2)->orderBy('created_at', 'desc')->get();
         $newproduct3 = Product::where('manu_id', 3)->orderBy('created_at', 'desc')->get();
         $newproduct4 = Product::where('manu_id', 4)->orderBy('created_at', 'desc')->get();
-        $topsellings = Product::where('sale', '>', 0)->get();
+        $topsellings = Product::where('sale', '>', 0)->take(10)->get();
         $topselling1 = Product::where('manu_id', 1)->where('sale', '>', 0)->get();
         $topselling2 = Product::where('manu_id', 2)->where('sale', '>', 0)->get();
         $topselling3 = Product::where('manu_id', 3)->where('sale', '>', 0)->get();
