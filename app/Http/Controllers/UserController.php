@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -24,7 +25,7 @@ class UserController extends Controller
         if (!$this->userCan('view-page-admin')) {
             abort('404', __('NOT FOUND'));
         }
-        $allusers = User::all();
+        $allusers = User::paginate(5);
         return view('admin.users', [
             'allusers' => $allusers,
         ]);
@@ -39,7 +40,7 @@ class UserController extends Controller
         if (!$this->userCan('view-page-admin')) {
             abort('404', __('BNOT FOUND!'));
         }
-        return view('admin.addmanufacturer');
+        return view('admin.adduser');
     }
 
     /**
@@ -54,7 +55,14 @@ class UserController extends Controller
             abort('404', __('NOT FOUND!'));
         }
         $name = new User;
+       
+
         $name->name = $request->name;
+        $name->email = $request->email;
+        $name->password =  Hash::make($request->pass);
+        $name->admin = 0;
+
+       
         $name->save();
         return redirect()->action([UserController::class, 'index']);
     }
@@ -70,6 +78,9 @@ class UserController extends Controller
         if (!$this->userCan('view-page-admin')) {
             abort('404', __('NOT FOUND!'));
         }
+       
+        $user = User::find($id);
+        return view('admin.edituser')->with('user',$user);
     }
 
     /**
@@ -103,6 +114,8 @@ class UserController extends Controller
         }
         $name = User::find($id);
         $name->name = $request->name;
+        $name->email = $request->email;
+        $name->password =  Hash::make($request->pass);
         $name->save();
         return redirect()->action([UserController::class, 'index']);
     }

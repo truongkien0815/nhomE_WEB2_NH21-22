@@ -7,13 +7,15 @@
     <title>Admin | Dashboard</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="{{ asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
     <!-- iCheck -->
     <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
     <!-- JQVMap -->
@@ -51,7 +53,8 @@
                     <div class="navbar-search-block">
                         <form class="form-inline">
                             <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                                <input class="form-control form-control-navbar" type="search" placeholder="Search"
+                                    aria-label="Search">
                                 <div class="input-group-append">
                                     <button class="btn btn-navbar" type="submit">
                                         <i class="fas fa-search"></i>
@@ -77,18 +80,23 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="{{ url('/admin') }}" class="brand-link">
-                <img src="{{ asset('/img/hinh-anh-dai-dien-dep-2.jpg') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="{{ asset('/img/hinh-anh-dai-dien-dep-2.jpg') }}" alt="AdminLTE Logo"
+                    class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Adminstrator {{ Auth::user()->name }}</span>
             </a>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" style="text-align: center; color: aliceblue">{{ __('Log Out') }} <i class="fas fa-arrow-circle-right"></i></a>
+                <a class="nav-link" href="{{ route('logout') }}"
+                    onclick="event.preventDefault(); this.closest('form').submit();"
+                    style="text-align: center; color: aliceblue">{{ __('Log Out') }} <i
+                        class="fas fa-arrow-circle-right"></i></a>
             </form>
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item menu-open">
@@ -133,16 +141,70 @@
                                         <p>Payments</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+
+                                <!-- order -->
+                                <li class="nav-item menu-open">
+                                    <a href="#" class="nav-link">
+                                        <!-- <i class="nav-icon fas fa-book"></i> -->
+                                        Order
+                                        <i class="nav-icon fas"></i>
+
+                                        <p>
+
+                                            <!-- Order -->
+                                            <i class="fas fa-angle-left right"></i>
+                                        </p>
+                                    </a>
+
+                                    <ul class="nav nav-treeview">
+
+                                        <li class="nav-item">
+                                            <a href="{{ url('/detail') }}" class="nav-link">
+                                                <!-- <a href="../admin/orderoff" class="nav-link"> -->
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Đơn chưa xử lý</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ url('/detailhoanthanh') }}" class="nav-link">
+                                                <!-- <a href="../admin/orderon" class="nav-link"> -->
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Đơn đã giao</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+
+                                            <a href="{{ url('all_order')}}" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>tất cả order</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+
+                                </li>
+
+                                <!--  -->
+
+                                <!-- <li class="nav-item">
                                     <a href="{{ url('/detail') }}" class="nav-link">
                                         <p>Details</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="{{ url('/detailhoanthanh') }}" class="nav-link">
+                                        <p>hoan thanh</p>
+                                    </a>
+                                </li> -->
+                                <li class="nav-item">
                                     <a href="{{ url('/other') }}" class="nav-link">
                                         <p>Othes</p>
                                     </a>
                                 </li>
+
+
+
+
                             </ul>
                         </li>
                     </ul>
@@ -155,7 +217,8 @@
         @yield('admin-content')
 
         <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
+            reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 3.1.0
             </div>
@@ -175,7 +238,7 @@
     <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
-        $.widget.bridge('uibutton', $.ui.button)
+    $.widget.bridge('uibutton', $.ui.button)
     </script>
     <!-- Bootstrap 4 -->
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

@@ -75,7 +75,7 @@ class MyController extends Controller
         return redirect()->route('index');
     }
 
-    function createpayment()
+    function createpayment(Request $request)
     {
         if (!$this->userCan('view-page-guest')) {
             abort('404', __('NOT FOUND'));
@@ -85,6 +85,7 @@ class MyController extends Controller
         $allproducts = Product::all();
         $payment = new Payment;
         $payment->user_id = $user->id;
+        $payment->status = 0;
         if (count($allpayments) < 5) {
             $payment->discount = "3";
         } elseif (count($allpayments) > 10) {
@@ -98,6 +99,12 @@ class MyController extends Controller
                 $detail = new Detail;
                 $detail->product_id = $value->product_id;
                 $detail->payment_id = $payment->payment_id;
+                $detail->status = 0;
+                $detail->address = $request->address;
+                $detail->telephone = $request->telephone;
+
+
+
                 $detail->quantity = session()->get('carts' . $value->product_id);
                 $detail->save();
                 session()->forget('carts' . $value->product_id);
@@ -292,17 +299,17 @@ class MyController extends Controller
         $allproducts = Product::all();
         $topsellings = Product::where('sale', '>', 0)->orderBy('sale', 'desc')->take(3)->get();
         if (request()->option == 'description') {
-            $search = Product::where('description', 'like', '%' . request()->key . '%')->get();
+            $search = Product::where('description', 'like', '%' . request()->key . '%')->paginate(10);
             $allsearchs = Product::where('description', 'like', '%' . request()->key . '%')->get();
         } else if (request()->option == 'product_name') {
-            $search = Product::where('product_name', 'like', '%' . request()->key . '%')->get();
+            $search = Product::where('product_name', 'like', '%' . request()->key . '%')->paginate(10);
             $allsearchs = Product::where('product_name', 'like', '%' . request()->key . '%')->get();
         } else if (request()->option == 'manu_name') {
             $manus = Protype::where('manu_name', 'like', '%' . request()->key . '%')->first();
-            $search = Product::where('manu_id', $manus->manu_id)->get();
+            $search = Product::where('manu_id', $manus->manu_id)->paginate(10);
             $allsearchs = Product::where('manu_id', $manus->manu_id)->get();
         } else if (request()->option == "alls") {
-            $search = Product::whereNotNull('manu_id')->get();
+            $search = Product::whereNotNull('manu_id')->paginate(10);
             $allsearchs = Product::whereNotNull('manu_id')->get();
         } else if (request()->option == "wishlist") {
             $allothers = Other::where('user_id', $user->id)->where('like', 1)->whereNotNull('like')->get('product_id');
@@ -310,7 +317,7 @@ class MyController extends Controller
             foreach ($allothers as $value) {
                 $arrothers[] = $value->product_id;
             }
-            $search = Product::whereIn('product_id', $arrothers)->get();
+            $search = Product::whereIn('product_id', $arrothers)->paginate(10);
             $allsearchs = Product::whereIn('product_id', $arrothers)->get();
         }
         return view('search', [

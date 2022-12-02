@@ -214,64 +214,61 @@
                     <!-- Add Review -->
 
                     <div class="col-lg-6 add_review_col">
-
-                        <div class="add_review" id="review_form" action="post">
-                            <?php if ($user != NULL) { ?>
-                            <form action="{{ url('/star/'.$product->manu_id.'/'.$product->product_id.'/'.$user->id) }}"
-                                class="review-form" method="GET">
+                        <?php if ($user != NULL) { ?>
+                        <form action="{{ url('/star/'.$product->manu_id.'/'.$product->product_id.'/'.$user->id) }}"
+                            class="review-form" method="GET">
+                            <div class="add_review" id="review_form" action="post">
                                 <textarea name="submit" class="input" placeholder="Your Review" required></textarea>
                                 <div class="input-rating">
                                     <span>Your Rating: </span>
                                     <div class="user_star_rating">
-                                        <input class="fa fa-star" id="star1" name="rating" value="1" type="radio" aria-hidden="true" required><label
-                                            for="star1"></label>
-                                        <input class="fa fa-star" id="star2" name="rating" value="2" type="radio" aria-hidden="true" required><label
-                                            for="star2"></label>
-                                        <input class="fa fa-star" id="star3" name="rating" value="3" type="radio" aria-hidden="true" required><label
-                                            for="star3"></label>
-                                        <input class="fa fa-star" id="star4" name="rating" value="4" type="radio" aria-hidden="true" required><label
-                                            for="star4"></label>
-                                        <input class="fa fa-star" id="star5" name="rating" value="5" type="radio" aria-hidden="true" required><label
-                                            for="star5"></label>
+                                        <input class="fa fa-star" id="star1" name="rating" value="1" type="radio"
+                                            aria-hidden="true" required><label for="star1"></label>
+                                        <input class="fa fa-star" id="star2" name="rating" value="2" type="radio"
+                                            aria-hidden="true" required><label for="star2"></label>
+                                        <input class="fa fa-star" id="star3" name="rating" value="3" type="radio"
+                                            aria-hidden="true" required><label for="star3"></label>
+                                        <input class="fa fa-star" id="star4" name="rating" value="4" type="radio"
+                                            aria-hidden="true" required><label for="star4"></label>
+                                        <input class="fa fa-star" id="star5" name="rating" value="5" type="radio"
+                                            aria-hidden="true" required><label for="star5"></label>
                                     </div>
                                 </div>
                                 <button class="primary-btn">Submit</button>
-                            </form>
-                            <?php } else { ?>
-                            <form action="{{ url('/star/'.$product->manu_id.'/'.$product->product_id.'/0') }}"
-                                class="review-form" method="GET">
-                                <input id="review_name" class="form_input input_name" name="name" type="text"
-                                    placeholder="Name*" required="required" data-error="Name is required.">
-                                <input id="review_email" class="form_input input_email" type="email" name="email"
-                                    placeholder="Email*" required="required" data-error="Valid email is required.">
-                                <textarea id="review_message" class="input_review" name="message"
-                                    placeholder="Your Review" rows="4" required
-                                    data-error="Please, leave us a review."></textarea>
-                                <div class="input-rating">
-                                    <span>Your Rating: </span>
-                                    <div class="user_star_rating">
-                                        <input class="fa fa-star" id="star1" name="rating" value="1" type="radio" aria-hidden="true" required><label
-                                            for="star1"></label>
-                                        <input class="fa fa-star" id="star2" name="rating" value="2" type="radio" aria-hidden="true" required><label
-                                            for="star2"></label>
-                                        <input class="fa fa-star" id="star3" name="rating" value="3" type="radio" aria-hidden="true" required><label
-                                            for="star3"></label>
-                                        <input class="fa fa-star" id="star4" name="rating" value="4" type="radio" aria-hidden="true" required><label
-                                            for="star5"></label>
-                                        <input class="fa fa-star" id="star5" name="rating" value="5" type="radio" aria-hidden="true" required><label
-                                            for="star5"></label>
-                                    </div>
+                        </form>
+                        <?php } else { ?>
+                        <form action="{{ url('/star/'.$product->manu_id.'/'.$product->product_id.'/0') }}"
+                            class="review-form" method="GET">
+                            <input id="review_name" class="form_input input_name" name="name" type="text"
+                                placeholder="Name*" required="required" data-error="Name is required.">
+                            <input id="review_email" class="form_input input_email" type="email" name="email"
+                                placeholder="Email*" required="required" data-error="Valid email is required.">
+                            <textarea id="review_message" class="input_review" name="message" placeholder="Your Review"
+                                rows="4" required data-error="Please, leave us a review."></textarea>
+                            <div class="input-rating">
+                                <span>Your Rating: </span>
+                                <div class="user_star_rating">
+                                    <input class="fa fa-star" id="star1" name="rating" value="1" type="radio"
+                                        aria-hidden="true" required><label for="star1"></label>
+                                    <input class="fa fa-star" id="star2" name="rating" value="2" type="radio"
+                                        aria-hidden="true" required><label for="star2"></label>
+                                    <input class="fa fa-star" id="star3" name="rating" value="3" type="radio"
+                                        aria-hidden="true" required><label for="star3"></label>
+                                    <input class="fa fa-star" id="star4" name="rating" value="4" type="radio"
+                                        aria-hidden="true" required><label for="star5"></label>
+                                    <input class="fa fa-star" id="star5" name="rating" value="5" type="radio"
+                                        aria-hidden="true" required><label for="star5"></label>
                                 </div>
-                                <button id="review_submit" type="submit" class="red_button review_submit_btn trans_300"
-                                    value="Submit">Submit</button>
-                            </form>
+                            </div>
+                            <button id="review_submit" type="submit" class="red_button review_submit_btn trans_300"
+                                value="Submit">Submit</button>
                             <?php } ?>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 </div>
